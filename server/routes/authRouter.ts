@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import signIn from '../controllers/auth/login';
-import logIn from '../controllers/auth/signin';
+import logIn from '../controllers/auth/logIn';
+import signup from '../controllers/auth/signup';
 
 const app = Router();
 
-app.post('/signin', signIn);
+app.post('/signup', signup);
 app.post('/login', logIn);
 
 export default app;

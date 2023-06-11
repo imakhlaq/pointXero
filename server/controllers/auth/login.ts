@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 
-const signIn = (req: Response, res: Request) => {};
+const logIn = (req: Request, res: Response) => {
+  res.json({ hello: 'popo' });
+};
 
-export default signIn;
+export default logIn;
