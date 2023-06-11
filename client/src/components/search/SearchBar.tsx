@@ -10,7 +10,7 @@ const SearchBar = () => {
         />
       </div>
 
-      <button className='bg-greenColor px-4 py-2.5 rounded-r-md min-h-11 max-w-sm overflow-hidden'>
+      <button className='bg-greenColor px-4 py-2.5 rounded-r-md min-h-11 overflow-hidden'>
         <RiSearchLine className=' h-4 w-4 text-cyan-50 text-center' />
       </button>
     </div>

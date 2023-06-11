@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import SearchBar from '../search/SearchBar';
-import { AiOutlineShopping } from 'react-icons/ai';
+import { AiOutlineShopping, AiOutlineShoppingCart } from 'react-icons/ai';
 import { RxHamburgerMenu } from 'react-icons/rx';
 
 const NavBar = () => {
@@ -17,7 +17,9 @@ const NavBar = () => {
         <ul className='flex gap-10 text-lg font-medium'>
           <li>Account</li>
           <li>Orders</li>
-          <li>Cart</li>
+          <li>
+            <AiOutlineShoppingCart className='h-7 w-7' />
+          </li>
         </ul>
       </nav>
       <nav className='lg:hidden'>
