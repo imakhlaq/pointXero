@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const SignUpPage = () => {
   return (
     <main>
@@ -30,11 +32,14 @@ const SignUpPage = () => {
               id='remember'
               className='accent-greenColor bottom-0 rounded-sm'
             />
-            <label htmlFor='remember'>Remember Me </label>
+            <label htmlFor='remember'>I agree Terms & Conditions </label>
           </div>
           <button className='bg-greenColor max-w-xs py-2 px-4 rounded-md text-whiteText font-bold '>
-            Sign In
+            Sign Up
           </button>
+          <Link href='/login' className='text-center mt-10'>
+            Already have Account? Sign In
+          </Link>
         </div>
       </div>
     </main>
