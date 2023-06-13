@@ -1,11 +1,9 @@
 import express, { Express } from 'express';
 import rootRouter from './routes/rootRouter';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import config from './config/envConfig';
 
 const app: Express = express();
-const port = process.env.PORT;
+const port = config.PORT;
 
 app.use(rootRouter);
 
