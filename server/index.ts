@@ -5,6 +5,8 @@ import config from './config/envConfig';
 const app: Express = express();
 const port = config.PORT;
 
+app.use(express.json());
+
 app.use(rootRouter);
 
 app.listen(port, () => {

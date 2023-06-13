@@ -1,5 +1,71 @@
 import { Request, Response } from 'express';
+import db from '../../db/database';
+import { NewUser, User, user } from '../../db/schema/users';
+import * as bcrypt from 'bcrypt';
+import { eq } from 'drizzle-orm';
+import config from '../../config/envConfig';
+import jwt from 'jsonwebtoken';
 
-const signUp = (req: Response, res: Request) => {};
+const signUp = async (req: Request, res: Response) => {
+  const body: NewUser = req.body;
+
+  //hash the password
+
+  const hashedPassword = await bcrypt.hash(body.password, 10);
+
+  const userData = { ...body, password: hashedPassword };
+
+  try {
+    //check for username and email exits
+
+    const emailExists = await db
+      .select()
+      .from(user)
+      .where(eq(user.email, userData.email));
+
+    console.log(emailExists);
+
+    if (emailExists.length) {
+      return res.status(409).json({
+        message: 'This Email already Exits',
+      });
+    }
+
+    const userNameExists = await db
+      .select()
+      .from(user)
+      .where(eq(user.userName, userData.userName));
+
+    if (userNameExists.length) {
+      return res.status(409).json({
+        message: 'This User Name already Exits',
+      });
+    }
+
+    //store the user
+
+    const [createdUser]: User[] = await db
+      .insert(user)
+      .values(userData)
+      .returning();
+
+    //create a jwt token
+
+    const token = jwt.sign(
+      {
+        id: createdUser.id,
+        userName: userData.firstName,
+      },
+      config.SECRET_KEY!,
+      { expiresIn: '10hr' },
+    );
+
+    //return the jwt token
+
+    return res.status(201).json({ token });
+  } catch (err) {
+    return res.status(502).json({ message: 'Internal Server Error' });
+  }
+};
 
 export default signUp;
