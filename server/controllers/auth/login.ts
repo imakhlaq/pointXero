@@ -5,6 +5,8 @@ import { user } from '../../db/schema/users';
 import { eq } from 'drizzle-orm';
 import * as bcrypt from 'bcrypt';
 import createJwtTokens from '../../utils/createJwtTokens';
+import CustomError from '../../utils/CustomError';
+import { Type } from 'typescript';
 
 type UserData = {
   userName: string;
@@ -21,7 +23,7 @@ const logIn = async (req: Request, res: Response) => {
       .where(eq(user.userName, userData.userName));
 
     if (!userInDB) {
-      return res.status(404).json({ message: 'In valid user name' });
+      throw new CustomError('Invalid username', 404);
     }
 
     const passMatch = await bcrypt.compare(
@@ -30,7 +32,7 @@ const logIn = async (req: Request, res: Response) => {
     );
 
     if (!passMatch) {
-      return res.status(404).json({ message: 'In valid password' });
+      throw new CustomError('Invalid password', 404);
     }
 
     const token = createJwtTokens(
@@ -40,8 +42,9 @@ const logIn = async (req: Request, res: Response) => {
     );
 
     return res.status(200).json({ token });
-  } catch (err) {
-    return res.status(502).json({ message: 'Internal Server Error' });
+  } catch (_err) {
+    const err = _err as CustomError;
+    return res.status(err.statusCode).json({ message: err.message });
   }
 };
 

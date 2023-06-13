@@ -1,13 +1,5 @@
 import { InferModel } from 'drizzle-orm';
-import {
-  pgTable,
-  serial,
-  text,
-  varchar,
-  uuid,
-  timestamp,
-  pgEnum,
-} from 'drizzle-orm/pg-core';
+import { pgTable, varchar, uuid, timestamp, pgEnum } from 'drizzle-orm/pg-core';
 
 // declaring enum in database
 export const roleEnum = pgEnum('role', ['user', 'seller', 'admin']);
@@ -20,7 +12,7 @@ export const user = pgTable('users', {
   password: varchar('password').notNull(),
   phone: varchar('phone', { length: 20 }).notNull(),
   email: varchar('email', { length: 30 }).notNull(),
-  role: roleEnum('role').default('user'),
+  role: roleEnum('role').default('user').notNull(),
   forgetPassToken: varchar('forget_pass_token'),
   forgetPassTokenValidTill: timestamp('forgetPassTokenValidTill'),
   createdAt: timestamp('created_at').defaultNow().notNull(),

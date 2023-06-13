@@ -67,8 +67,9 @@ var users_1 = require("../../db/schema/users");
 var drizzle_orm_1 = require("drizzle-orm");
 var bcrypt = __importStar(require("bcrypt"));
 var createJwtTokens_1 = __importDefault(require("../../utils/createJwtTokens"));
+var CustomError_1 = __importDefault(require("../../utils/CustomError"));
 var logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var userData, userInDB, passMatch, token, err_1;
+    var userData, userInDB, passMatch, token, _err_1, err;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -83,19 +84,20 @@ var logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, funct
             case 2:
                 userInDB = (_a.sent())[0];
                 if (!userInDB) {
-                    return [2 /*return*/, res.status(404).json({ message: 'In valid user name' })];
+                    throw new CustomError_1.default('Invalid username', 404);
                 }
                 return [4 /*yield*/, bcrypt.compare(userData.password, userInDB.password)];
             case 3:
                 passMatch = _a.sent();
                 if (!passMatch) {
-                    return [2 /*return*/, res.status(404).json({ message: 'In valid password' })];
+                    throw new CustomError_1.default('Invalid password', 404);
                 }
                 token = (0, createJwtTokens_1.default)(userInDB.id, userInDB.userName, userInDB.email);
                 return [2 /*return*/, res.status(200).json({ token: token })];
             case 4:
-                err_1 = _a.sent();
-                return [2 /*return*/, res.status(502).json({ message: 'Internal Server Error' })];
+                _err_1 = _a.sent();
+                err = _err_1;
+                return [2 /*return*/, res.status(err.statusCode).json({ message: err.message })];
             case 5: return [2 /*return*/];
         }
     });

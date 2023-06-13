@@ -12,7 +12,7 @@ exports.user = (0, pg_core_1.pgTable)('users', {
     password: (0, pg_core_1.varchar)('password').notNull(),
     phone: (0, pg_core_1.varchar)('phone', { length: 20 }).notNull(),
     email: (0, pg_core_1.varchar)('email', { length: 30 }).notNull(),
-    role: (0, exports.roleEnum)('role').default('user'),
+    role: (0, exports.roleEnum)('role').default('user').notNull(),
     forgetPassToken: (0, pg_core_1.varchar)('forget_pass_token'),
     forgetPassTokenValidTill: (0, pg_core_1.timestamp)('forgetPassTokenValidTill'),
     createdAt: (0, pg_core_1.timestamp)('created_at').defaultNow().notNull(),
