@@ -77,8 +77,7 @@ var database_1 = __importDefault(require("../../db/database"));
 var users_1 = require("../../db/schema/users");
 var bcrypt = __importStar(require("bcrypt"));
 var drizzle_orm_1 = require("drizzle-orm");
-var envConfig_1 = __importDefault(require("../../config/envConfig"));
-var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+var createJwtTokens_1 = __importDefault(require("../../utils/createJwtTokens"));
 var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var body, hashedPassword, userData, emailExists, userNameExists, createdUser, token, err_1;
     return __generator(this, function (_a) {
@@ -121,10 +120,7 @@ var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, func
                         .returning()];
             case 5:
                 createdUser = (_a.sent())[0];
-                token = jsonwebtoken_1.default.sign({
-                    id: createdUser.id,
-                    userName: userData.firstName,
-                }, envConfig_1.default.SECRET_KEY, { expiresIn: '10hr' });
+                token = (0, createJwtTokens_1.default)(createdUser.id, createdUser.userName, createdUser.email);
                 //return the jwt token
                 return [2 /*return*/, res.status(201).json({ token: token })];
             case 6:

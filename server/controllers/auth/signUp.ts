@@ -5,6 +5,7 @@ import * as bcrypt from 'bcrypt';
 import { eq } from 'drizzle-orm';
 import config from '../../config/envConfig';
 import jwt from 'jsonwebtoken';
+import createJwtTokens from '../../utils/createJwtTokens';
 
 const signUp = async (req: Request, res: Response) => {
   const body: NewUser = req.body;
@@ -51,15 +52,11 @@ const signUp = async (req: Request, res: Response) => {
 
     //create a jwt token
 
-    const token = jwt.sign(
-      {
-        id: createdUser.id,
-        userName: userData.firstName,
-      },
-      config.SECRET_KEY!,
-      { expiresIn: '10hr' },
+    const token = createJwtTokens(
+      createdUser.id,
+      createdUser.userName,
+      createdUser.email,
     );
-
     //return the jwt token
 
     return res.status(201).json({ token });
