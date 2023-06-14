@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.user = exports.roleEnum = void 0;
+exports.orders = exports.cart = exports.user = exports.roleEnum = void 0;
 var pg_core_1 = require("drizzle-orm/pg-core");
 // declaring enum in database
 exports.roleEnum = (0, pg_core_1.pgEnum)('role', ['user', 'seller', 'admin']);
@@ -17,4 +17,10 @@ exports.user = (0, pg_core_1.pgTable)('users', {
     forgetPassTokenValidTill: (0, pg_core_1.timestamp)('forgetPassTokenValidTill'),
     createdAt: (0, pg_core_1.timestamp)('created_at').defaultNow().notNull(),
     updatedAt: (0, pg_core_1.timestamp)('updated_at').defaultNow().notNull(),
+});
+exports.cart = (0, pg_core_1.pgTable)('carts', {
+    id: (0, pg_core_1.uuid)('id').defaultRandom().primaryKey().notNull(),
+});
+exports.orders = (0, pg_core_1.pgTable)('orders', {
+    id: (0, pg_core_1.uuid)('id').defaultRandom().primaryKey().notNull(),
 });

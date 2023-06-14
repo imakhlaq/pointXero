@@ -70,45 +70,41 @@ var createJwtTokens_1 = __importDefault(require("../../utils/createJwtTokens"));
 var CustomError_1 = __importDefault(require("../../utils/CustomError"));
 var loginUserDTO_1 = __importDefault(require("../../validations/loginUserDTO"));
 var zod_1 = require("zod");
+var formatError_1 = __importDefault(require("../../utils/formatError"));
 var logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var userData, userInDB, passMatch, token, _err_1, err;
-    var _a, _b;
-    return __generator(this, function (_c) {
-        switch (_c.label) {
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                userData = req.body;
-                _c.label = 1;
-            case 1:
-                _c.trys.push([1, 4, , 5]);
-                //user data validation
-                loginUserDTO_1.default.parse(userData);
+                _b.trys.push([0, 3, , 4]);
+                userData = loginUserDTO_1.default.parse(req.body);
                 return [4 /*yield*/, database_1.default
                         .select()
                         .from(users_1.user)
                         .where((0, drizzle_orm_1.eq)(users_1.user.userName, userData.userName))];
-            case 2:
-                userInDB = (_c.sent())[0];
+            case 1:
+                userInDB = (_b.sent())[0];
                 if (!userInDB) {
                     throw new CustomError_1.default('Invalid username', 404);
                 }
                 return [4 /*yield*/, bcrypt.compare(userData.password, userInDB.password)];
-            case 3:
-                passMatch = _c.sent();
+            case 2:
+                passMatch = _b.sent();
                 if (!passMatch) {
                     throw new CustomError_1.default('Invalid password', 404);
                 }
                 token = (0, createJwtTokens_1.default)(userInDB.id, userInDB.userName, userInDB.email);
                 return [2 /*return*/, res.status(200).json({ token: token })];
-            case 4:
-                _err_1 = _c.sent();
+            case 3:
+                _err_1 = _b.sent();
+                // zod Error
                 if (_err_1 instanceof zod_1.z.ZodError) {
-                    return [2 /*return*/, res.status(400).json(_err_1.issues)];
+                    return [2 /*return*/, res.status(400).json(_err_1.format())];
                 }
                 err = _err_1;
-                return [2 /*return*/, res
-                        .status((_a = err.statusCode) !== null && _a !== void 0 ? _a : 500)
-                        .json({ message: (_b = err.message) !== null && _b !== void 0 ? _b : 'Internal Server Error' })];
-            case 5: return [2 /*return*/];
+                return [2 /*return*/, res.status((_a = err.statusCode) !== null && _a !== void 0 ? _a : 500).json((0, formatError_1.default)(err))];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
