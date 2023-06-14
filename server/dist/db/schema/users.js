@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.orders = exports.cart = exports.user = exports.roleEnum = void 0;
+exports.userRelations = exports.orders = exports.cart = exports.user = exports.roleEnum = void 0;
+var drizzle_orm_1 = require("drizzle-orm");
 var pg_core_1 = require("drizzle-orm/pg-core");
+var product_1 = require("./product");
 // declaring enum in database
 exports.roleEnum = (0, pg_core_1.pgEnum)('role', ['user', 'seller', 'admin']);
 exports.user = (0, pg_core_1.pgTable)('users', {
@@ -23,4 +25,10 @@ exports.cart = (0, pg_core_1.pgTable)('carts', {
 });
 exports.orders = (0, pg_core_1.pgTable)('orders', {
     id: (0, pg_core_1.uuid)('id').defaultRandom().primaryKey().notNull(),
+});
+exports.userRelations = (0, drizzle_orm_1.relations)(exports.user, function (_a) {
+    var many = _a.many;
+    return ({
+        product: many(product_1.product),
+    });
 });

@@ -21,7 +21,6 @@ const formatError = (err: CustomError | ZodError) => {
     errResponse.statusCode = 400;
 
     const errors: Errors[] = [];
-
     const formattedErr = err.format();
 
     for (const [key, value] of Object.entries(formattedErr)) {

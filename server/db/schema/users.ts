@@ -1,5 +1,6 @@
-import { InferModel } from 'drizzle-orm';
+import { InferModel, relations } from 'drizzle-orm';
 import { pgTable, varchar, uuid, timestamp, pgEnum } from 'drizzle-orm/pg-core';
+import { product } from './product';
 
 // declaring enum in database
 export const roleEnum = pgEnum('role', ['user', 'seller', 'admin']);
@@ -26,6 +27,10 @@ export const cart = pgTable('carts', {
 export const orders = pgTable('orders', {
   id: uuid('id').defaultRandom().primaryKey().notNull(),
 });
+
+export const userRelations = relations(user, ({ many }) => ({
+  product: many(product),
+}));
 
 export type NewUser = InferModel<typeof user, 'insert'>; // insert type
 export type User = InferModel<typeof user, 'select'>; // insert type
