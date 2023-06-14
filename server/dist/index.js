@@ -6,8 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var rootRouter_1 = __importDefault(require("./routes/rootRouter"));
 var envConfig_1 = __importDefault(require("./config/envConfig"));
+var cors_1 = __importDefault(require("cors"));
 var app = (0, express_1.default)();
 var port = envConfig_1.default.PORT;
+app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use(rootRouter_1.default);
 app.listen(port, function () {

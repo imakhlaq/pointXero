@@ -1,10 +1,12 @@
 import express, { Express } from 'express';
 import rootRouter from './routes/rootRouter';
 import config from './config/envConfig';
+import cors from 'cors';
 
 const app: Express = express();
 const port = config.PORT;
 
+app.use(cors());
 app.use(express.json());
 
 app.use(rootRouter);

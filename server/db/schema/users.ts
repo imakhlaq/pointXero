@@ -19,5 +19,13 @@ export const user = pgTable('users', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
+export const cart = pgTable('carts', {
+  id: uuid('id').defaultRandom().primaryKey().notNull(),
+});
+
+export const orders = pgTable('orders', {
+  id: uuid('id').defaultRandom().primaryKey().notNull(),
+});
+
 export type NewUser = InferModel<typeof user, 'insert'>; // insert type
 export type User = InferModel<typeof user, 'select'>; // insert type

@@ -78,54 +78,58 @@ var users_1 = require("../../db/schema/users");
 var bcrypt = __importStar(require("bcrypt"));
 var drizzle_orm_1 = require("drizzle-orm");
 var createJwtTokens_1 = __importDefault(require("../../utils/createJwtTokens"));
+var CustomError_1 = __importDefault(require("../../utils/CustomError"));
+var zod_1 = require("zod");
 var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var body, hashedPassword, userData, emailExists, userNameExists, createdUser, token, err_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var body, hashedPassword, userData, emailExists, userNameExists, createdUser, token, _err_1, err;
+    var _a, _b;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
             case 0:
                 body = req.body;
                 return [4 /*yield*/, bcrypt.hash(body.password, 10)];
             case 1:
-                hashedPassword = _a.sent();
+                hashedPassword = _c.sent();
                 userData = __assign(__assign({}, body), { password: hashedPassword });
-                _a.label = 2;
+                _c.label = 2;
             case 2:
-                _a.trys.push([2, 6, , 7]);
+                _c.trys.push([2, 6, , 7]);
                 return [4 /*yield*/, database_1.default
                         .select()
                         .from(users_1.user)
                         .where((0, drizzle_orm_1.eq)(users_1.user.email, userData.email))];
             case 3:
-                emailExists = _a.sent();
-                console.log(emailExists);
+                emailExists = _c.sent();
                 if (emailExists.length) {
-                    return [2 /*return*/, res.status(409).json({
-                            message: 'This Email already Exits',
-                        })];
+                    throw new CustomError_1.default('This Email already Exits', 409);
                 }
                 return [4 /*yield*/, database_1.default
                         .select()
                         .from(users_1.user)
                         .where((0, drizzle_orm_1.eq)(users_1.user.userName, userData.userName))];
             case 4:
-                userNameExists = _a.sent();
+                userNameExists = _c.sent();
                 if (userNameExists.length) {
-                    return [2 /*return*/, res.status(409).json({
-                            message: 'This User Name already Exits',
-                        })];
+                    throw new CustomError_1.default('This User Name already Exits', 409);
                 }
                 return [4 /*yield*/, database_1.default
                         .insert(users_1.user)
                         .values(userData)
                         .returning()];
             case 5:
-                createdUser = (_a.sent())[0];
+                createdUser = (_c.sent())[0];
                 token = (0, createJwtTokens_1.default)(createdUser.id, createdUser.userName, createdUser.email);
                 //return the jwt token
                 return [2 /*return*/, res.status(201).json({ token: token })];
             case 6:
-                err_1 = _a.sent();
-                return [2 /*return*/, res.status(502).json({ message: 'Internal Server Error' })];
+                _err_1 = _c.sent();
+                if (_err_1 instanceof zod_1.z.ZodError) {
+                    console.log(_err_1.issues);
+                }
+                err = _err_1;
+                return [2 /*return*/, res
+                        .status((_a = err.statusCode) !== null && _a !== void 0 ? _a : 500)
+                        .json({ message: (_b = err.message) !== null && _b !== void 0 ? _b : 'Internal Server Error' })];
             case 7: return [2 /*return*/];
         }
     });
