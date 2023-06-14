@@ -9,6 +9,17 @@ var formatError = function (err) {
     // zod Error
     if (err instanceof zod_1.ZodError) {
         errResponse.statusCode = 400;
+        var errors = [];
+        var formattedErr = err.format();
+        for (var _i = 0, _c = Object.entries(formattedErr); _i < _c.length; _i++) {
+            var _d = _c[_i], key = _d[0], value = _d[1];
+            if (key === '_errors') {
+                continue;
+            }
+            // @ts-ignore:next-line
+            errors.push({ message: value._errors[0] });
+        }
+        errResponse.errors = errors;
     }
     else {
         //normal error

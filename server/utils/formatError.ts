@@ -20,21 +20,19 @@ const formatError = (err: CustomError | ZodError) => {
   if (err instanceof ZodError) {
     errResponse.statusCode = 400;
 
-    
+    const errors: Errors[] = [];
 
+    const formattedErr = err.format();
 
+    for (const [key, value] of Object.entries(formattedErr)) {
+      if (key === '_errors') {
+        continue;
+      }
+      // @ts-ignore:next-line
+      errors.push({ message: value._errors[0] });
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    errResponse.errors = errors;
   } else {
     //normal error
     errResponse.statusCode = err.statusCode ?? 500;
