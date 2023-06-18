@@ -16,7 +16,16 @@ async function main() {
       product: {
         create: {
           title: "this is my book",
-          features: { message: "data" },
+          features: {
+            create: [
+              {
+                feature: "for long time",
+              },
+              {
+                feature: "this is second feature",
+              },
+            ],
+          },
           description: "this is description",
           public: true,
           rating: 3.4,
@@ -52,7 +61,16 @@ async function main() {
         create: [
           {
             title: "Panasonic TV",
-            features: { message: "HD tv" },
+            features: {
+              create: [
+                {
+                  feature: "for long third Feature",
+                },
+                {
+                  feature: "this is second fire filter",
+                },
+              ],
+            },
             description: "this is description",
             public: false,
             rating: 5.4,
@@ -80,7 +98,22 @@ async function main() {
           },
           {
             title: "washing TV",
-            features: { message: "machine tv" },
+            features: {
+              create: [
+                {
+                  feature: "for long third Feature",
+                },
+                {
+                  feature: "this is second fire filter",
+                },
+                {
+                  feature: "SoC is 918 is good",
+                },
+                {
+                  feature: "24/7 delivery",
+                },
+              ],
+            },
             description: "this is description",
             public: true,
             rating: 5.4,

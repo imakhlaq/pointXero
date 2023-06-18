@@ -30,5 +30,6 @@ const CreateUserDTO = z.object({
 });
 
 export default CreateUserDTO;
+
 // extract the inferred type like this
 export type UserSignUpInfo = z.infer<typeof CreateUserDTO>;

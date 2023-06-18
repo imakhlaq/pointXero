@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="972d84a0-fe93-4521-8546-b2d7cb1b72f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/controllers/admin/getunApprovedProducts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dist/controllers/admin/getunApprovedProducts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dist/validations/createProductDTO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/validations/createProductDTO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/[productId]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/cart/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/orders/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/search/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/search/SearchBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/search/SearchBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/ui/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/prisma/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/prisma/seed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/rootRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/rootRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/20230618032757_init/migration.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/migration_lock.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/prisma/seed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/seed.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/adminRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/adminRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/rootRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/rootRouter.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +107,8 @@
       <workItem from="1687045972601" duration="9800000" />
       <workItem from="1687056047942" duration="14374000" />
       <workItem from="1687092395908" duration="13620000" />
-      <workItem from="1687106500538" duration="3095000" />
+      <workItem from="1687106500538" duration="4836000" />
+      <workItem from="1687115969067" duration="31000" />
     </task>
     <servers />
   </component>

@@ -70,7 +70,7 @@ model Cart {
 model Product {
   id           String       @id @default(uuid())
   title        String
-  features     Json
+  features     Feature[]
   description  String
   public       Boolean      @default(true)
   adminApprove Boolean      @default(false)
@@ -87,6 +87,13 @@ model Product {
   size         Size[]
   Order        Order[]
   Cart         Cart[]
+}
+
+model Feature {
+  id        String  @id @default(uuid())
+  feature   String
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
 }
 
 model Categories {
