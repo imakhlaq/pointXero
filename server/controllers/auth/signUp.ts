@@ -5,6 +5,7 @@ import CustomError from "../../utils/CustomError";
 import { z } from "zod";
 import { prisma } from "../../db/database";
 import type { User } from "@prisma/client";
+import formatError from "../../utils/formatError";
 
 const signUp = async (req: Request, res: Response) => {
   const body: User = req.body;
@@ -49,13 +50,11 @@ const signUp = async (req: Request, res: Response) => {
     return res.status(201).json({ token });
   } catch (_err) {
     if (_err instanceof z.ZodError) {
-      console.log(_err.issues);
+      return res.status(400).json(formatError(_err));
     }
 
     const err = _err as CustomError;
-    return res
-      .status(err.statusCode ?? 500)
-      .json({ message: err.message ?? "Internal Server Error" });
+    return res.status(err.statusCode ?? 500).json(formatError(err));
   }
 };
 

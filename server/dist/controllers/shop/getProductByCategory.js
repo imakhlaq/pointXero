@@ -39,22 +39,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var database_1 = require("../../db/database");
 function getProductByCategory(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var category, _a, page, limit, productList;
+        var category, _a, page, limit, productList, skip, take;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     category = req.params.category;
                     _a = req.query, page = _a.page, limit = _a.limit;
-                    if (!(!page || !limit)) return [3 /*break*/, 2];
+                    if (!(!page || !limit || +page <= 0 || +limit <= 0)) return [3 /*break*/, 2];
                     return [4 /*yield*/, database_1.prisma.product.findMany({
                             where: { categories: { every: { category: category } } },
                         })];
                 case 1:
                     productList = _b.sent();
                     return [3 /*break*/, 4];
-                case 2: return [4 /*yield*/, database_1.prisma.product.findMany({
-                        where: { categories: { every: { category: category } } },
-                    })];
+                case 2:
+                    skip = (+page - 1) * +limit;
+                    take = (+page - 1) * +limit + +limit;
+                    return [4 /*yield*/, database_1.prisma.product.findMany({
+                            skip: skip,
+                            take: take,
+                            where: { categories: { every: { category: category } } },
+                        })];
                 case 3:
                     productList = _b.sent();
                     _b.label = 4;

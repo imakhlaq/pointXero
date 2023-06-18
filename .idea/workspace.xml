@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="972d84a0-fe93-4521-8546-b2d7cb1b72f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/prisma/migrations/20230618020707_init/migration.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/prisma/migrations/migration_lock.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/prisma/sseder.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/shop/getProductById.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/dist/controllers/shop/getProductById.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/middlewares/adminAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/middlewares/adminAuth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/middlewares/userAutth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/middlewares/userAutth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/routes/rootRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/rootRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/routes/shopRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/shopRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/routes/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/userRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middlewares/adminAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/adminAuth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middlewares/userAutth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/userAutth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/rootRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/rootRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/shopRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/shopRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/userRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/userRouter.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +70,28 @@
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\prettier",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.JavaScript",
     "ts.external.directory.path": "D:\\Projects\\pointXero\\server\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="generate" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="generate" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.generate" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -85,6 +109,8 @@
       <workItem from="1687041256847" duration="570000" />
       <workItem from="1687041840454" duration="3735000" />
       <workItem from="1687045972601" duration="9800000" />
+      <workItem from="1687056047942" duration="14374000" />
+      <workItem from="1687092395908" duration="6084000" />
     </task>
     <servers />
   </component>

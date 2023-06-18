@@ -39,32 +39,39 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-var envConfig_1 = __importDefault(require("../config/envConfig"));
-var userAuth = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var authHeader, token, data;
-    return __generator(this, function (_a) {
-        authHeader = req.header("authorization");
-        token = authHeader === null || authHeader === void 0 ? void 0 : authHeader.split(" ")[1];
-        //verifying token
-        if (!token) {
-            return [2 /*return*/, res.status(401).json({
-                    statusCode: 401,
-                    errors: [{ message: "JWT token is not present in the request" }],
-                })];
-        }
-        try {
-            data = jsonwebtoken_1.default.verify(token, envConfig_1.default.SECRET_KEY);
-            console.log(data);
-            next();
-        }
-        catch (err) {
-            return [2 /*return*/, res.status(401).json({
-                    statusCode: 401,
-                    errors: [{ message: "JWT token is invalid signature" }],
-                })];
-        }
-        return [2 /*return*/];
+var database_1 = require("../../db/database");
+var CustomError_1 = __importDefault(require("../../utils/CustomError"));
+var formatError_1 = __importDefault(require("../../utils/formatError"));
+function getProductById(req, res) {
+    var _a;
+    return __awaiter(this, void 0, void 0, function () {
+        var productId, product, err;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    productId = req.params.productId;
+                    return [4 /*yield*/, database_1.prisma.product.findUnique({
+                            where: { id: productId },
+                            include: {
+                                image: true,
+                                categories: true,
+                            },
+                        })];
+                case 1:
+                    product = _b.sent();
+                    try {
+                        if (!product) {
+                            throw new CustomError_1.default("Product doesn't exits", 404);
+                        }
+                        return [2 /*return*/, res.json(product)];
+                    }
+                    catch (_err) {
+                        err = _err;
+                        return [2 /*return*/, res.status((_a = err.statusCode) !== null && _a !== void 0 ? _a : 500).json((0, formatError_1.default)(err))];
+                    }
+                    return [2 /*return*/];
+            }
+        });
     });
-}); };
-exports.default = userAuth;
+}
+exports.default = getProductById;
