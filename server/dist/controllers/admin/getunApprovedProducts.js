@@ -41,13 +41,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var database_1 = require("../../db/database");
 var formatError_1 = __importDefault(require("../../utils/formatError"));
-function getProductByCategory(req, res) {
+function getUnApprovedProducts(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var category, _a, page, limit, productList, skip, take, err_1;
+        var _a, page, limit, productList, skip, take, err_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    category = req.params.category;
                     _a = req.query, page = _a.page, limit = _a.limit;
                     _b.label = 1;
                 case 1:
@@ -55,11 +54,7 @@ function getProductByCategory(req, res) {
                     if (!(!page || !limit || +page <= 0 || +limit <= 0)) return [3 /*break*/, 3];
                     return [4 /*yield*/, database_1.prisma.product.findMany({
                             where: {
-                                AND: [
-                                    { public: true },
-                                    { adminApprove: true },
-                                    { categories: { some: { category: category } } },
-                                ],
+                                AND: [{ public: true }, { adminApprove: false }],
                             },
                         })];
                 case 2:
@@ -71,13 +66,7 @@ function getProductByCategory(req, res) {
                     return [4 /*yield*/, database_1.prisma.product.findMany({
                             skip: skip,
                             take: take,
-                            where: {
-                                AND: [
-                                    { public: true },
-                                    { adminApprove: true },
-                                    { categories: { some: { category: category } } },
-                                ],
-                            },
+                            where: { AND: [{ public: true }, { adminApprove: false }] },
                         })];
                 case 4:
                     productList = _b.sent();
@@ -91,4 +80,4 @@ function getProductByCategory(req, res) {
         });
     });
 }
-exports.default = getProductByCategory;
+exports.default = getUnApprovedProducts;

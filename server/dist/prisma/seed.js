@@ -40,7 +40,7 @@ var client_1 = require("@prisma/client");
 var prisma = new client_1.PrismaClient();
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var akhlaq;
+        var akhlaq, use2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, prisma.user.upsert({
@@ -56,7 +56,7 @@ function main() {
                             product: {
                                 create: {
                                     title: "this is my book",
-                                    features: JSON.stringify({ message: "data" }),
+                                    features: { message: "data" },
                                     description: "this is description",
                                     public: true,
                                     rating: 3.4,
@@ -79,6 +79,85 @@ function main() {
                     })];
                 case 1:
                     akhlaq = _a.sent();
+                    return [4 /*yield*/, prisma.user.upsert({
+                            where: { email: "akhlaq@prisma.io" },
+                            update: {},
+                            create: {
+                                username: "imakhlaqxd",
+                                firstName: "super",
+                                lastName: "Ahmad",
+                                password: "12341",
+                                email: "akhlaq@prisma.io",
+                                phone: "7905399098",
+                                product: {
+                                    create: [
+                                        {
+                                            title: "Panasonic TV",
+                                            features: { message: "HD tv" },
+                                            description: "this is description",
+                                            public: false,
+                                            rating: 5.4,
+                                            currentPrice: 22.33,
+                                            marketPrice: 222.1,
+                                            brand: "panasonic",
+                                            image: {
+                                                create: {
+                                                    url: "https://images.freeimages.com/images/previews/ac9/railway-hdr-1361893.jpg",
+                                                },
+                                            },
+                                            categories: {
+                                                create: [
+                                                    {
+                                                        category: "elctronic",
+                                                    },
+                                                    {
+                                                        category: "machine",
+                                                    },
+                                                    {
+                                                        category: "TV",
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                        {
+                                            title: "washing TV",
+                                            features: { message: "machine tv" },
+                                            description: "this is description",
+                                            public: true,
+                                            rating: 5.4,
+                                            currentPrice: 22.33,
+                                            marketPrice: 222.1,
+                                            brand: "panasonic",
+                                            image: {
+                                                create: [
+                                                    {
+                                                        url: "https://images.freeimages.com/images/previews/ac9/railway-hdr-1361893.jpg",
+                                                    },
+                                                    {
+                                                        url: "https://images.freeimages.com/images/previews/ac9/railway-hdr-161893.jpg",
+                                                    },
+                                                ],
+                                            },
+                                            categories: {
+                                                create: [
+                                                    {
+                                                        category: "elctronic",
+                                                    },
+                                                    {
+                                                        category: "machine",
+                                                    },
+                                                    {
+                                                        category: "washing",
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ],
+                                },
+                            },
+                        })];
+                case 2:
+                    use2 = _a.sent();
                     return [2 /*return*/];
             }
         });

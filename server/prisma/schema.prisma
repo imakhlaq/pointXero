@@ -72,7 +72,8 @@ model Product {
   title        String
   features     Json
   description  String
-  public       Boolean
+  public       Boolean      @default(true)
+  adminApprove Boolean      @default(false)
   rating       Decimal?
   currentPrice Decimal
   marketPrice  Decimal

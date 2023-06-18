@@ -1,11 +1,10 @@
 import { Request, Response } from "express";
-import { prisma } from "../../db/database";
 import { Product } from "@prisma/client";
+import { prisma } from "../../db/database";
 import formatError from "../../utils/formatError";
 import CustomError from "../../utils/CustomError";
 
-async function getProductByCategory(req: Request, res: Response) {
-  const { category } = req.params;
+async function getUnApprovedProducts(req: Request, res: Response) {
   const { page, limit } = req.query;
 
   let productList: Product[];
@@ -13,11 +12,7 @@ async function getProductByCategory(req: Request, res: Response) {
     if (!page || !limit || +page <= 0 || +limit <= 0) {
       productList = await prisma.product.findMany({
         where: {
-          AND: [
-            { public: true },
-            { adminApprove: true },
-            { categories: { some: { category: category } } },
-          ],
+          AND: [{ public: true }, { adminApprove: false }],
         },
       });
     } else {
@@ -27,13 +22,7 @@ async function getProductByCategory(req: Request, res: Response) {
       productList = await prisma.product.findMany({
         skip,
         take,
-        where: {
-          AND: [
-            { public: true },
-            { adminApprove: true },
-            { categories: { some: { category: category } } },
-          ],
-        },
+        where: { AND: [{ public: true }, { adminApprove: false }] },
       });
     }
     return res.status(200).json(productList);
@@ -42,4 +31,4 @@ async function getProductByCategory(req: Request, res: Response) {
   }
 }
 
-export default getProductByCategory;
+export default getUnApprovedProducts;

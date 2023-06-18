@@ -5,21 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="972d84a0-fe93-4521-8546-b2d7cb1b72f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/controllers/shop/getProductById.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dist/controllers/shop/getProductById.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/admin/getunApprovedProducts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/dist/controllers/admin/getunApprovedProducts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/dist/validations/createProductDTO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/validations/createProductDTO.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/search/SearchBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/search/SearchBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ui/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/ui/NavBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/middlewares/adminAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/middlewares/adminAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/middlewares/userAutth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/middlewares/userAutth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/prisma/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/prisma/seed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/dist/routes/rootRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/rootRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/shopRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/shopRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/userRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middlewares/adminAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/adminAuth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middlewares/userAutth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/userAutth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/20230618032757_init/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/migration_lock.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/seed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/seed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/adminRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/adminRouter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/rootRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/rootRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/shopRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/shopRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/userRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/userRouter.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +48,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,30 +56,35 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "pnpm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\prettier",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.JavaScript",
-    "ts.external.directory.path": "D:\\Projects\\pointXero\\server\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.TypeScript&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Projects\\pointXero\\server\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\pointXero\client\src\app" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="generate" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/server/package.json" />
@@ -110,7 +120,8 @@
       <workItem from="1687041840454" duration="3735000" />
       <workItem from="1687045972601" duration="9800000" />
       <workItem from="1687056047942" duration="14374000" />
-      <workItem from="1687092395908" duration="6084000" />
+      <workItem from="1687092395908" duration="13620000" />
+      <workItem from="1687106500538" duration="3095000" />
     </task>
     <servers />
   </component>
