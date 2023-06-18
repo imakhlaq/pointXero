@@ -61,10 +61,11 @@ model UserDetail {
 }
 
 model Cart {
-  id        String  @id @default(uuid())
+  id        String    @id @default(uuid())
   cartPrice Decimal
-  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId    String  @unique
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String    @unique
+  product   Product[]
 }
 
 model Product {
@@ -85,6 +86,7 @@ model Product {
   size         Size[]
   Order        Order[]
   orderId      String?
+  Cart         Cart[]
 }
 
 model Categories {
