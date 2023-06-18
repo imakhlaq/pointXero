@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 const LogInPage = () => {
+
   return (
     <main>
       <div className='container relative mx-auto my-32 flex max-w-xl flex-col px-6 text-gray-900 justify-center '>

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userRelations = exports.orders = exports.cart = exports.user = exports.roleEnum = void 0;
+exports.userRelations = exports.orders = exports.cart = exports.userDetails = exports.user = exports.roleEnum = void 0;
 var drizzle_orm_1 = require("drizzle-orm");
 var pg_core_1 = require("drizzle-orm/pg-core");
 var product_1 = require("./product");
@@ -20,11 +20,28 @@ exports.user = (0, pg_core_1.pgTable)('users', {
     createdAt: (0, pg_core_1.timestamp)('created_at').defaultNow().notNull(),
     updatedAt: (0, pg_core_1.timestamp)('updated_at').defaultNow().notNull(),
 });
+exports.userDetails = (0, pg_core_1.pgTable)('users_details', {
+    id: (0, pg_core_1.serial)('id').primaryKey().notNull(),
+    street: (0, pg_core_1.varchar)('land_mark', { length: 50 }).notNull(),
+    landMark: (0, pg_core_1.varchar)('land_mark', { length: 30 }),
+    city: (0, pg_core_1.varchar)('city', { length: 30 }).notNull(),
+    state: (0, pg_core_1.varchar)('state', { length: 30 }).notNull(),
+    pinCode: (0, pg_core_1.integer)('pincode').notNull(),
+    userId: (0, pg_core_1.varchar)('user_id').notNull(),
+    createdAt: (0, pg_core_1.timestamp)('created_at').defaultNow().notNull(),
+    updatedAt: (0, pg_core_1.timestamp)('updated_at').defaultNow().notNull(),
+});
 exports.cart = (0, pg_core_1.pgTable)('carts', {
-    id: (0, pg_core_1.uuid)('id').defaultRandom().primaryKey().notNull(),
+    id: (0, pg_core_1.serial)('id').primaryKey().notNull(),
+    cartPrice: (0, pg_core_1.doublePrecision)('cart_price'),
+    userId: (0, pg_core_1.varchar)('user_id').notNull(),
 });
 exports.orders = (0, pg_core_1.pgTable)('orders', {
     id: (0, pg_core_1.uuid)('id').defaultRandom().primaryKey().notNull(),
+    userId: (0, pg_core_1.varchar)('user_id').notNull(),
+    productId: (0, pg_core_1.varchar)('product_id').notNull(),
+    createdAt: (0, pg_core_1.timestamp)('created_at').defaultNow().notNull(),
+    updatedAt: (0, pg_core_1.timestamp)('updated_at').defaultNow().notNull(),
 });
 exports.userRelations = (0, drizzle_orm_1.relations)(exports.user, function (_a) {
     var many = _a.many;
