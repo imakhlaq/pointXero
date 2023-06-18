@@ -62,15 +62,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __importDefault(require("../../db/database"));
-var users_1 = require("../../db/schema/users");
-var drizzle_orm_1 = require("drizzle-orm");
 var bcrypt = __importStar(require("bcrypt"));
 var createJwtTokens_1 = __importDefault(require("../../utils/createJwtTokens"));
 var CustomError_1 = __importDefault(require("../../utils/CustomError"));
 var loginUserDTO_1 = __importDefault(require("../../validations/loginUserDTO"));
 var zod_1 = require("zod");
 var formatError_1 = __importDefault(require("../../utils/formatError"));
+var database_1 = require("../../db/database");
 var logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var userData, userInDB, passMatch, token, _err_1, err;
     var _a;
@@ -79,22 +77,21 @@ var logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, funct
             case 0:
                 _b.trys.push([0, 3, , 4]);
                 userData = loginUserDTO_1.default.parse(req.body);
-                return [4 /*yield*/, database_1.default
-                        .select()
-                        .from(users_1.user)
-                        .where((0, drizzle_orm_1.eq)(users_1.user.userName, userData.userName))];
+                return [4 /*yield*/, database_1.prisma.user.findUnique({
+                        where: { username: userData.username },
+                    })];
             case 1:
-                userInDB = (_b.sent())[0];
+                userInDB = _b.sent();
                 if (!userInDB) {
-                    throw new CustomError_1.default('Invalid username', 404);
+                    throw new CustomError_1.default("Invalid username", 404);
                 }
                 return [4 /*yield*/, bcrypt.compare(userData.password, userInDB.password)];
             case 2:
                 passMatch = _b.sent();
                 if (!passMatch) {
-                    throw new CustomError_1.default('Invalid password', 404);
+                    throw new CustomError_1.default("Invalid password", 404);
                 }
-                token = (0, createJwtTokens_1.default)(userInDB.id, userInDB.userName, userInDB.email);
+                token = (0, createJwtTokens_1.default)(userInDB.id, userInDB.username, userInDB.email);
                 return [2 /*return*/, res.status(200).json({ token: token })];
             case 3:
                 _err_1 = _b.sent();

@@ -35,26 +35,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __importDefault(require("../../db/database"));
-var getProductByCategory = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var category, _a, page, limit, productList;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                category = req.params.category;
-                _a = req.query, page = _a.page, limit = _a.limit;
-                if (!(!page || !limit)) return [3 /*break*/, 2];
-                return [4 /*yield*/, database_1.default.query.products.findMany()];
-            case 1:
-                productList = _b.sent();
-                console.log(productList);
-                return [2 /*return*/, productList];
-            case 2: return [2 /*return*/];
-        }
+var database_1 = require("../../db/database");
+function getProductByCategory(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var category, _a, page, limit, productList;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    category = req.params.category;
+                    _a = req.query, page = _a.page, limit = _a.limit;
+                    if (!(!page || !limit)) return [3 /*break*/, 2];
+                    return [4 /*yield*/, database_1.prisma.product.findMany({
+                            where: { categories: { every: { category: category } } },
+                        })];
+                case 1:
+                    productList = _b.sent();
+                    return [3 /*break*/, 4];
+                case 2: return [4 /*yield*/, database_1.prisma.product.findMany({
+                        where: { categories: { every: { category: category } } },
+                    })];
+                case 3:
+                    productList = _b.sent();
+                    _b.label = 4;
+                case 4: return [2 /*return*/, res.status(200).json(productList)];
+            }
+        });
     });
-}); };
+}
 exports.default = getProductByCategory;

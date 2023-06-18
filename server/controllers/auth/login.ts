@@ -1,15 +1,11 @@
-import { Request, Response } from 'express';
-import { User } from '../../db/schema/users';
-import db from '../../db/database';
-import { user } from '../../db/schema/users';
-import { eq } from 'drizzle-orm';
-import * as bcrypt from 'bcrypt';
-import createJwtTokens from '../../utils/createJwtTokens';
-import CustomError from '../../utils/CustomError';
-import userLoginInfo, { UserLoginInfo } from '../../validations/loginUserDTO';
-import { z } from 'zod';
-
-import formatError from '../../utils/formatError';
+import { Request, Response } from "express";
+import * as bcrypt from "bcrypt";
+import createJwtTokens from "../../utils/createJwtTokens";
+import CustomError from "../../utils/CustomError";
+import userLoginInfo, { UserLoginInfo } from "../../validations/loginUserDTO";
+import { z } from "zod";
+import formatError from "../../utils/formatError";
+import { prisma } from "../../db/database";
 
 const logIn = async (req: Request, res: Response) => {
   try {
@@ -17,29 +13,28 @@ const logIn = async (req: Request, res: Response) => {
     const userData: UserLoginInfo = userLoginInfo.parse(req.body);
 
     //searching user in db
-    const [userInDB]: User[] = await db
-      .select()
-      .from(user)
-      .where(eq(user.userName, userData.userName));
+    const userInDB = await prisma.user.findUnique({
+      where: { username: userData.username },
+    });
 
     if (!userInDB) {
-      throw new CustomError('Invalid username', 404);
+      throw new CustomError("Invalid username", 404);
     }
 
     const passMatch = await bcrypt.compare(
       userData.password,
-      userInDB.password,
+      userInDB.password
     );
 
     if (!passMatch) {
-      throw new CustomError('Invalid password', 404);
+      throw new CustomError("Invalid password", 404);
     }
 
     //jwt token generation
     const token = createJwtTokens(
       userInDB.id,
-      userInDB.userName,
-      userInDB.email,
+      userInDB.username,
+      userInDB.email
     );
 
     return res.status(200).json({ token });

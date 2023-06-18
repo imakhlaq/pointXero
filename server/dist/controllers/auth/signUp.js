@@ -73,13 +73,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = __importDefault(require("../../db/database"));
-var users_1 = require("../../db/schema/users");
 var bcrypt = __importStar(require("bcrypt"));
-var drizzle_orm_1 = require("drizzle-orm");
 var createJwtTokens_1 = __importDefault(require("../../utils/createJwtTokens"));
 var CustomError_1 = __importDefault(require("../../utils/CustomError"));
 var zod_1 = require("zod");
+var database_1 = require("../../db/database");
 var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var body, hashedPassword, userData, emailExists, userNameExists, createdUser, token, _err_1, err;
     var _a, _b;
@@ -94,31 +92,26 @@ var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, func
                 _c.label = 2;
             case 2:
                 _c.trys.push([2, 6, , 7]);
-                return [4 /*yield*/, database_1.default
-                        .select()
-                        .from(users_1.user)
-                        .where((0, drizzle_orm_1.eq)(users_1.user.email, userData.email))];
+                return [4 /*yield*/, database_1.prisma.user.findUnique({
+                        where: { email: userData.email },
+                    })];
             case 3:
                 emailExists = _c.sent();
-                if (emailExists.length) {
-                    throw new CustomError_1.default('This Email already Exits', 409);
+                if (emailExists) {
+                    throw new CustomError_1.default("This Email already Exits", 409);
                 }
-                return [4 /*yield*/, database_1.default
-                        .select()
-                        .from(users_1.user)
-                        .where((0, drizzle_orm_1.eq)(users_1.user.userName, userData.userName))];
+                return [4 /*yield*/, database_1.prisma.user.findUnique({
+                        where: { username: userData.username },
+                    })];
             case 4:
                 userNameExists = _c.sent();
-                if (userNameExists.length) {
-                    throw new CustomError_1.default('This User Name already Exits', 409);
+                if (userNameExists) {
+                    throw new CustomError_1.default("This User Name already Exits", 409);
                 }
-                return [4 /*yield*/, database_1.default
-                        .insert(users_1.user)
-                        .values(userData)
-                        .returning()];
+                return [4 /*yield*/, database_1.prisma.user.create({ data: userData })];
             case 5:
-                createdUser = (_c.sent())[0];
-                token = (0, createJwtTokens_1.default)(createdUser.id, createdUser.userName, createdUser.email);
+                createdUser = _c.sent();
+                token = (0, createJwtTokens_1.default)(createdUser.id, createdUser.username, createdUser.email);
                 //return the jwt token
                 return [2 /*return*/, res.status(201).json({ token: token })];
             case 6:
@@ -129,7 +122,7 @@ var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, func
                 err = _err_1;
                 return [2 /*return*/, res
                         .status((_a = err.statusCode) !== null && _a !== void 0 ? _a : 500)
-                        .json({ message: (_b = err.message) !== null && _b !== void 0 ? _b : 'Internal Server Error' })];
+                        .json({ message: (_b = err.message) !== null && _b !== void 0 ? _b : "Internal Server Error" })];
             case 7: return [2 /*return*/];
         }
     });
