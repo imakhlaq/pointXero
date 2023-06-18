@@ -5,36 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="972d84a0-fe93-4521-8546-b2d7cb1b72f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/pointXero.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/user/createOrder.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/prisma/schema.prisma" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/types.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/(auth)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/(auth)/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/migrations/0000_tearful_virginia_dare.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/migrations/meta/0000_snapshot.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/migrations/meta/_journal.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/schema/product.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/schema/users.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/db/schema/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/db/schema/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/db/schema/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/db/schema/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/rootRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/rootRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/shopRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/shopRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/drizzle.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/rootRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/rootRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/shopRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/shopRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/utils/createJwtTokens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/utils/createJwtTokens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/schema.prisma" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +78,7 @@
       <workItem from="1687040805365" duration="441000" />
       <workItem from="1687041256847" duration="570000" />
       <workItem from="1687041840454" duration="3735000" />
-      <workItem from="1687045972601" duration="3334000" />
+      <workItem from="1687045972601" duration="5271000" />
     </task>
     <servers />
   </component>

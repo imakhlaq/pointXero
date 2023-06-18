@@ -30,9 +30,14 @@ model User {
 }
 
 model Order {
-  id     String @id @default(uuid())
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
+  id           String     @id @default(uuid())
+  user         User       @relation(fields: [userId], references: [id], onDelete: NoAction)
+  userId       String
+  product      Product[]
+  userDetail   UserDetail @relation(fields: [userDetailID], references: [id])
+  userDetailID String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
 }
 
 enum Role {
@@ -48,16 +53,17 @@ model UserDetail {
   city      String
   pinCode   Int
   country   String
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  order     Order[]
 }
 
 model Cart {
   id        String  @id @default(uuid())
   cartPrice Decimal
-  user      User    @relation(fields: [userId], references: [id])
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String  @unique
 }
 
@@ -65,6 +71,7 @@ model Product {
   id           String       @id @default(uuid())
   title        String
   description  String
+  public       Boolean
   rating       Decimal?
   currentPrice Decimal
   marketPrice  Decimal
@@ -76,6 +83,8 @@ model Product {
   Categories   Categories[]
   image        Images[]
   size         Size[]
+  Order        Order[]
+  orderId      String?
 }
 
 model Categories {
@@ -85,10 +94,12 @@ model Categories {
 }
 
 model Images {
-  id        String  @id @default(uuid())
+  id        String   @id @default(uuid())
   url       String
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
   productId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Size {
