@@ -24,7 +24,7 @@ model User {
   createdAt                DateTime     @default(now())
   updatedAt                DateTime     @updatedAt
   userDetail               UserDetail[]
-  Product                  Product[]
+  product                  Product[]
   cart                     Cart?
   order                    Order[]
 }
@@ -83,7 +83,7 @@ model Product {
   userId       String
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
-  Categories   Categories[]
+  categories   Categories[]
   image        Images[]
   size         Size[]
   Order        Order[]
