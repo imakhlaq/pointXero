@@ -1,4 +1,5 @@
-import { z } from "zod";
+import { string, z } from "zod";
+import { Sizes } from "@prisma/client";
 
 const createProductDTO = z.object({
   title: z
@@ -8,6 +9,7 @@ const createProductDTO = z.object({
     })
     .min(4, "Title should be atleast have 4 character"),
   features: z.array(z.string()),
+  public: z.boolean(),
   description: z.string({
     required_error: "Description is required",
     invalid_type_error: "Description must be a string",
@@ -31,7 +33,10 @@ const createProductDTO = z.object({
   image: z.array(z.string().url()),
   categories: z.array(z.string()),
   size: z.array(
-    z.object({ size: z.string(), quantity: z.string().pipe(z.coerce.number()) })
+    z.object({
+      size: z.nativeEnum(Sizes),
+      quantity: z.string().pipe(z.coerce.number()),
+    })
   ),
 });
 
