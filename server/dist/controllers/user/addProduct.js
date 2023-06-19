@@ -39,68 +39,69 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var database_1 = require("../../db/database");
+var zod_1 = require("zod");
+var createProductDTO_1 = __importDefault(require("../../validations/createProductDTO"));
 var formatError_1 = __importDefault(require("../../utils/formatError"));
-function getProductByCategory(req, res) {
+var database_1 = require("../../db/database");
+function addProduct(req, res) {
+    var _a;
     return __awaiter(this, void 0, void 0, function () {
-        var category, _a, page, limit, productList, skip, take, err_1;
+        var product, newProduct, _err_1, err;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    category = req.params.category;
-                    _a = req.query, page = _a.page, limit = _a.limit;
-                    _b.label = 1;
+                    _b.trys.push([0, 2, , 3]);
+                    product = createProductDTO_1.default.parse(req.body);
+                    return [4 /*yield*/, database_1.prisma.product.create({
+                            data: {
+                                title: product.title,
+                                userId: "d1a0af50-6193-4b54-af16-4667d7a11948",
+                                description: product.description,
+                                brand: product.brand,
+                                currentPrice: product.currentPrice,
+                                marketPrice: product.marketPrice,
+                                public: product.public,
+                                features: {
+                                    create: product.features.map(function (feature) {
+                                        return { feature: feature };
+                                    }),
+                                },
+                                categories: {
+                                    create: product.categories.map(function (category) {
+                                        return { category: category };
+                                    }),
+                                },
+                                image: {
+                                    create: product.image.map(function (img) {
+                                        return { url: img };
+                                    }),
+                                },
+                                size: {
+                                    create: product.size.map(function (size) {
+                                        return { size: size.size, quantity: size.quantity };
+                                    }),
+                                },
+                            },
+                            include: {
+                                features: true,
+                                categories: true,
+                                image: true,
+                                size: true,
+                            },
+                        })];
                 case 1:
-                    _b.trys.push([1, 6, , 7]);
-                    if (!(!page || !limit || +page <= 0 || +limit <= 0)) return [3 /*break*/, 3];
-                    return [4 /*yield*/, database_1.prisma.product.findMany({
-                            where: {
-                                AND: [
-                                    { public: true },
-                                    { adminApprove: true },
-                                    { categories: { some: { category: category } } },
-                                ],
-                            },
-                            include: {
-                                features: true,
-                                categories: true,
-                                image: true,
-                                size: true,
-                            },
-                        })];
+                    newProduct = _b.sent();
+                    return [2 /*return*/, res.status(201).json(newProduct)];
                 case 2:
-                    productList = _b.sent();
-                    return [3 /*break*/, 5];
-                case 3:
-                    skip = (+page - 1) * +limit;
-                    take = (+page - 1) * +limit + +limit;
-                    return [4 /*yield*/, database_1.prisma.product.findMany({
-                            skip: skip,
-                            take: take,
-                            where: {
-                                AND: [
-                                    { public: true },
-                                    { adminApprove: true },
-                                    { categories: { some: { category: category } } },
-                                ],
-                            },
-                            include: {
-                                features: true,
-                                categories: true,
-                                image: true,
-                                size: true,
-                            },
-                        })];
-                case 4:
-                    productList = _b.sent();
-                    _b.label = 5;
-                case 5: return [2 /*return*/, res.status(200).json(productList)];
-                case 6:
-                    err_1 = _b.sent();
-                    return [2 /*return*/, res.status(500).json((0, formatError_1.default)(err_1))];
-                case 7: return [2 /*return*/];
+                    _err_1 = _b.sent();
+                    if (_err_1 instanceof zod_1.ZodError) {
+                        return [2 /*return*/, res.status(402).json((0, formatError_1.default)(_err_1))];
+                    }
+                    err = _err_1;
+                    return [2 /*return*/, res.status((_a = err.statusCode) !== null && _a !== void 0 ? _a : 500).json((0, formatError_1.default)(err))];
+                case 3: return [2 /*return*/];
             }
         });
     });
 }
-exports.default = getProductByCategory;
+exports.default = addProduct;

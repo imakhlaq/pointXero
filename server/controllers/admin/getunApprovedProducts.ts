@@ -19,6 +19,14 @@ async function getUnApprovedProducts(req: Request, res: Response) {
       const skip: number = (+page - 1) * +limit;
       const take: number = (+page - 1) * +limit + +limit;
 
+
+
+
+
+
+
+
+
       productList = await prisma.product.findMany({
         skip,
         take,

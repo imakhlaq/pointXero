@@ -12,18 +12,17 @@ async function addProduct(req: Request, res: Response) {
     const newProduct = await prisma.product.create({
       data: {
         title: product.title,
+        userId: "d1a0af50-6193-4b54-af16-4667d7a11948",
+        description: product.description,
+        brand: product.brand,
+        currentPrice: product.currentPrice,
+        marketPrice: product.marketPrice,
         public: product.public,
         features: {
           create: product.features.map((feature) => {
             return { feature };
           }),
         },
-        userId: "0bc2404b-7ff8-4586-956b-3910a74bb194",
-        description: product.description,
-        brand: product.brand,
-        currentPrice: product.currentPrice,
-        marketPrice: product.marketPrice,
-
         categories: {
           create: product.categories.map((category) => {
             return { category };
@@ -39,6 +38,12 @@ async function addProduct(req: Request, res: Response) {
             return { size: size.size, quantity: size.quantity };
           }),
         },
+      },
+      include: {
+        features: true,
+        categories: true,
+        image: true,
+        size: true,
       },
     });
 

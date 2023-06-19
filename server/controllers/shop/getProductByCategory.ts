@@ -19,6 +19,12 @@ async function getProductByCategory(req: Request, res: Response) {
             { categories: { some: { category: category } } },
           ],
         },
+        include: {
+          features: true,
+          categories: true,
+          image: true,
+          size: true,
+        },
       });
     } else {
       const skip: number = (+page - 1) * +limit;
@@ -33,6 +39,12 @@ async function getProductByCategory(req: Request, res: Response) {
             { adminApprove: true },
             { categories: { some: { category: category } } },
           ],
+        },
+        include: {
+          features: true,
+          categories: true,
+          image: true,
+          size: true,
         },
       });
     }

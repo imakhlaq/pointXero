@@ -53,8 +53,10 @@ function getProductById(req, res) {
                     return [4 /*yield*/, database_1.prisma.product.findUnique({
                             where: { id: productId },
                             include: {
-                                image: true,
+                                features: true,
                                 categories: true,
+                                image: true,
+                                size: true,
                             },
                         })];
                 case 1:
