@@ -79,24 +79,23 @@ var CustomError_1 = __importDefault(require("../../utils/CustomError"));
 var zod_1 = require("zod");
 var database_1 = require("../../db/database");
 var formatError_1 = __importDefault(require("../../utils/formatError"));
+var createUserDTO_1 = __importDefault(require("../../validations/createUserDTO"));
 var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var body, hashedPassword, userData, emailExists, userNameExists, createdUser, token, _err_1, err;
     var _a;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                body = req.body;
+                _b.trys.push([0, 5, , 6]);
+                body = createUserDTO_1.default.parse(req.body);
                 return [4 /*yield*/, bcrypt.hash(body.password, 10)];
             case 1:
                 hashedPassword = _b.sent();
                 userData = __assign(__assign({}, body), { password: hashedPassword });
-                _b.label = 2;
-            case 2:
-                _b.trys.push([2, 6, , 7]);
                 return [4 /*yield*/, database_1.prisma.user.findUnique({
                         where: { email: userData.email },
                     })];
-            case 3:
+            case 2:
                 emailExists = _b.sent();
                 if (emailExists) {
                     throw new CustomError_1.default("This Email already Exits", 409);
@@ -104,25 +103,25 @@ var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, func
                 return [4 /*yield*/, database_1.prisma.user.findUnique({
                         where: { username: userData.username },
                     })];
-            case 4:
+            case 3:
                 userNameExists = _b.sent();
                 if (userNameExists) {
                     throw new CustomError_1.default("This User Name already Exits", 409);
                 }
                 return [4 /*yield*/, database_1.prisma.user.create({ data: userData })];
-            case 5:
+            case 4:
                 createdUser = _b.sent();
                 token = (0, createJwtTokens_1.default)(createdUser.id, createdUser.username, createdUser.email);
                 //return the jwt token
                 return [2 /*return*/, res.status(201).json({ token: token })];
-            case 6:
+            case 5:
                 _err_1 = _b.sent();
-                if (_err_1 instanceof zod_1.z.ZodError) {
+                if (_err_1 instanceof zod_1.ZodError) {
                     return [2 /*return*/, res.status(400).json((0, formatError_1.default)(_err_1))];
                 }
                 err = _err_1;
                 return [2 /*return*/, res.status((_a = err.statusCode) !== null && _a !== void 0 ? _a : 500).json((0, formatError_1.default)(err))];
-            case 7: return [2 /*return*/];
+            case 6: return [2 /*return*/];
         }
     });
 }); };

@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { Product } from "@prisma/client";
 import { prisma } from "../../db/database";
 import formatError from "../../utils/formatError";
 import CustomError from "../../utils/CustomError";
@@ -7,7 +6,7 @@ import CustomError from "../../utils/CustomError";
 async function getUnApprovedProducts(req: Request, res: Response) {
   const { page, limit } = req.query;
 
-  let productList: Product[];
+  let productList;
   try {
     if (!page || !limit || +page <= 0 || +limit <= 0) {
       productList = await prisma.product.findMany({
@@ -18,14 +17,6 @@ async function getUnApprovedProducts(req: Request, res: Response) {
     } else {
       const skip: number = (+page - 1) * +limit;
       const take: number = (+page - 1) * +limit + +limit;
-
-
-
-
-
-
-
-
 
       productList = await prisma.product.findMany({
         skip,

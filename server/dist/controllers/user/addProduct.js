@@ -55,7 +55,7 @@ function addProduct(req, res) {
                     return [4 /*yield*/, database_1.prisma.product.create({
                             data: {
                                 title: product.title,
-                                userId: "d1a0af50-6193-4b54-af16-4667d7a11948",
+                                userId: req.body.userId,
                                 description: product.description,
                                 brand: product.brand,
                                 currentPrice: product.currentPrice,

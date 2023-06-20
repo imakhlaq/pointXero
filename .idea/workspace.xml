@@ -5,33 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbe15407-4cac-442d-8a2e-60054f03df95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/pnpm-lock.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dist/controllers/user/addProduct.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/components/ui/Footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/admin/approveProduct.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/user/getCartData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/user/updateCart.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/prettier.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/admin/getunApprovedProducts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/admin/getunApprovedProducts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/shop/getProductById.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/shop/getProductById.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/auth/signUp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth/signUp.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/user/addProduct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/addProduct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/controllers/shop/getProductById.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/shop/getProductById.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/prisma/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/prisma/seed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/controllers/auth/signUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/auth/signUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/controllers/user/addProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/user/addProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/middlewares/adminAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/middlewares/adminAuth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/middlewares/userAutth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/middlewares/userAutth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/dist/routes/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/userRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/validations/createProductDTO.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/validations/createProductDTO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middlewares/adminAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/adminAuth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middlewares/userAutth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/userAutth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/adminRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/adminRouter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/userRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/userRouter.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,13 +63,15 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "jsx.switch.disabled": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "F:\\Projects\\pointXero\\server\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.rainbow.brackets",
+    "settings.editor.selected.configurable": "terminal",
     "settings.editor.splitter.proportion": "0.23751274",
+    "ts.external.directory.path": "F:\\Projects\\pointXero\\server\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -90,6 +84,10 @@
       <option name="presentableId" value="Default" />
       <updated>1687190968797</updated>
       <workItem from="1687190969848" duration="639000" />
+      <workItem from="1687192181468" duration="171000" />
+      <workItem from="1687192391171" duration="284000" />
+      <workItem from="1687192868791" duration="2211000" />
+      <workItem from="1687206348890" duration="14217000" />
     </task>
     <servers />
   </component>
@@ -98,5 +96,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

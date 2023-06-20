@@ -2,21 +2,21 @@ import { Request, Response } from "express";
 import * as bcrypt from "bcrypt";
 import createJwtTokens from "../../utils/createJwtTokens";
 import CustomError from "../../utils/CustomError";
-import { z } from "zod";
+import { z, ZodError } from "zod";
 import { prisma } from "../../db/database";
 import type { User } from "@prisma/client";
 import formatError from "../../utils/formatError";
+import createUserDTO from "../../validations/createUserDTO";
 
 const signUp = async (req: Request, res: Response) => {
-  const body: User = req.body;
-
   //hash the password
 
-  const hashedPassword = await bcrypt.hash(body.password, 10);
-
-  const userData = { ...body, password: hashedPassword };
-
   try {
+    const body = createUserDTO.parse(req.body);
+
+    const hashedPassword = await bcrypt.hash(body.password, 10);
+
+    const userData = { ...body, password: hashedPassword };
     //check for username and email exits
     const emailExists = await prisma.user.findUnique({
       where: { email: userData.email },
@@ -49,7 +49,7 @@ const signUp = async (req: Request, res: Response) => {
 
     return res.status(201).json({ token });
   } catch (_err) {
-    if (_err instanceof z.ZodError) {
+    if (_err instanceof ZodError) {
       return res.status(400).json(formatError(_err));
     }
 

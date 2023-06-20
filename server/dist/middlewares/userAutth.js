@@ -55,7 +55,7 @@ var userAuth = function (req, res, next) { return __awaiter(void 0, void 0, void
         }
         try {
             data = jsonwebtoken_1.default.verify(token, envConfig_1.default.SECRET_KEY);
-            console.log(data);
+            req.body.userId = data.userId;
             next();
         }
         catch (err) {
