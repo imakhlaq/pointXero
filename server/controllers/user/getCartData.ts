@@ -6,16 +6,15 @@ async function getCartData(req: Request, res: Response) {
     const cartData = await prisma.cart.findUnique({
       where: { userId: req.body.userId },
       include: {
-        product: {
+        CartItem: {
           include: {
-            categories: true,
-            features: true,
-            image: true,
+            product: true,
           },
         },
       },
     });
 
+    console.log(cartData);
     return res.json(cartData);
   } catch (_err) {
     return res.status(500).json({

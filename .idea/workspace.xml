@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbe15407-4cac-442d-8a2e-60054f03df95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/ui/Footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/admin/approveProduct.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/user/getCartData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/user/updateCart.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/admin/getunApprovedProducts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/admin/getunApprovedProducts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/auth/signUp.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth/signUp.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user/addProduct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/addProduct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/controllers/auth/signUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/auth/signUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/controllers/user/addProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/user/addProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/middlewares/adminAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/middlewares/adminAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/middlewares/userAutth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/middlewares/userAutth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/userRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middlewares/adminAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/adminAuth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middlewares/userAutth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares/userAutth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/adminRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/adminRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/userRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/userRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/user/getCartData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/getCartData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/user/updateCart.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/updateCart.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/20230618214309_update/migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/migrations/20230620014328_init/migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/schema.prisma" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,24 +43,24 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jsx.switch.disabled": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "F:\\Projects\\pointXero\\server\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "terminal",
-    "settings.editor.splitter.proportion": "0.23751274",
-    "ts.external.directory.path": "F:\\Projects\\pointXero\\server\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jsx.switch.disabled&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;F:\\Projects\\pointXero\\server\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.23751274&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;F:\\Projects\\pointXero\\server\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -87,7 +73,15 @@
       <workItem from="1687192181468" duration="171000" />
       <workItem from="1687192391171" duration="284000" />
       <workItem from="1687192868791" duration="2211000" />
-      <workItem from="1687206348890" duration="14217000" />
+      <workItem from="1687206348890" duration="14430000" />
+      <workItem from="1687222624212" duration="3000000" />
+      <workItem from="1687254428376" duration="53000" />
+      <workItem from="1687254847826" duration="3232000" />
+      <workItem from="1687258091171" duration="4265000" />
+      <workItem from="1687280354292" duration="76000" />
+      <workItem from="1687280556932" duration="13000" />
+      <workItem from="1687280579037" duration="32000" />
+      <workItem from="1687280881239" duration="73000" />
     </task>
     <servers />
   </component>
