@@ -1,9 +1,6 @@
 -- CreateEnum
 CREATE TYPE "Role" AS ENUM ('admin', 'seller', 'user');
 
--- CreateEnum
-CREATE TYPE "Sizes" AS ENUM ('XL', 'L', 'M', 'S', 'XS');
-
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
@@ -81,8 +78,6 @@ CREATE TABLE "Product" (
     "public" BOOLEAN NOT NULL DEFAULT true,
     "adminApprove" BOOLEAN NOT NULL DEFAULT false,
     "rating" DECIMAL(65,30),
-    "currentPrice" DECIMAL(65,30) NOT NULL,
-    "marketPrice" DECIMAL(65,30) NOT NULL,
     "brand" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -120,13 +115,15 @@ CREATE TABLE "Images" (
 );
 
 -- CreateTable
-CREATE TABLE "Size" (
+CREATE TABLE "Version" (
     "id" TEXT NOT NULL,
-    "size" "Sizes" NOT NULL,
+    "version" TEXT NOT NULL,
+    "currentPrice" DECIMAL(65,30) NOT NULL,
+    "marketPrice" DECIMAL(65,30) NOT NULL,
     "quantity" INTEGER NOT NULL,
     "productId" TEXT NOT NULL,
 
-    CONSTRAINT "Size_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Version_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -190,7 +187,7 @@ ALTER TABLE "Feature" ADD CONSTRAINT "Feature_productId_fkey" FOREIGN KEY ("prod
 ALTER TABLE "Images" ADD CONSTRAINT "Images_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Size" ADD CONSTRAINT "Size_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Version" ADD CONSTRAINT "Version_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "_OrderToProduct" ADD CONSTRAINT "_OrderToProduct_A_fkey" FOREIGN KEY ("A") REFERENCES "Order"("id") ON DELETE CASCADE ON UPDATE CASCADE;

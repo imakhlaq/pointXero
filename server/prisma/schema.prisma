@@ -89,8 +89,6 @@ model Product {
   public       Boolean      @default(true)
   adminApprove Boolean      @default(false)
   rating       Decimal?
-  currentPrice Decimal
-  marketPrice  Decimal
   brand        String
   user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId       String
@@ -98,7 +96,7 @@ model Product {
   updatedAt    DateTime     @updatedAt
   categories   Categories[]
   image        Images[]
-  size         Size[]
+  versions     Version[]
   Order        Order[]
   CartItem     CartItem[]
 }
@@ -125,18 +123,12 @@ model Images {
   updatedAt DateTime @updatedAt
 }
 
-model Size {
-  id        String  @id @default(uuid())
-  size      Sizes
-  quantity  Int
-  product   Product @relation(fields: [productId], references: [id])
-  productId String
-}
-
-enum Sizes {
-  XL
-  L
-  M
-  S
-  XS
+model Version {
+  id           String  @id @default(uuid())
+  version      String
+  currentPrice Decimal
+  marketPrice  Decimal
+  quantity     Int
+  product      Product @relation(fields: [productId], references: [id])
+  productId    String
 }
