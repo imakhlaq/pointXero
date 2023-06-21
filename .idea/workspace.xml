@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbe15407-4cac-442d-8a2e-60054f03df95" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/server/controllers/user/deleteCartItem.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user/getCartData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/getCartData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user/updateCart.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/updateCart.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/20230618214309_update/migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/migrations/20230620014328_init/migration.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dist/routes/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/userRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/userRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/userRouter.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +80,7 @@
       <workItem from="1687280556932" duration="13000" />
       <workItem from="1687280579037" duration="32000" />
       <workItem from="1687280881239" duration="73000" />
+      <workItem from="1687311834964" duration="2908000" />
     </task>
     <servers />
   </component>
