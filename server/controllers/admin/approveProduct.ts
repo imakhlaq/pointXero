@@ -13,6 +13,7 @@ const prodId = z.object({
 async function approveProduct(req: Request, res: Response) {
   try {
     const { id } = prodId.parse(req.body);
+
     const prod = await prisma.product.update({
       where: { id },
       data: { adminApprove: true },

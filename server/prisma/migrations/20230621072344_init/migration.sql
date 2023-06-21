@@ -64,6 +64,7 @@ CREATE TABLE "CartItem" (
     "quantity" INTEGER NOT NULL,
     "cartId" TEXT NOT NULL,
     "productId" TEXT NOT NULL,
+    "versionId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -122,6 +123,8 @@ CREATE TABLE "Version" (
     "marketPrice" DECIMAL(65,30) NOT NULL,
     "quantity" INTEGER NOT NULL,
     "productId" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Version_pkey" PRIMARY KEY ("id")
 );
@@ -151,6 +154,9 @@ CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 CREATE UNIQUE INDEX "Cart_userId_key" ON "Cart"("userId");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "CartItem_versionId_key" ON "CartItem"("versionId");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "_OrderToProduct_AB_unique" ON "_OrderToProduct"("A", "B");
 
 -- CreateIndex
@@ -176,6 +182,9 @@ ALTER TABLE "CartItem" ADD CONSTRAINT "CartItem_cartId_fkey" FOREIGN KEY ("cartI
 
 -- AddForeignKey
 ALTER TABLE "CartItem" ADD CONSTRAINT "CartItem_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "CartItem" ADD CONSTRAINT "CartItem_versionId_fkey" FOREIGN KEY ("versionId") REFERENCES "Version"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Product" ADD CONSTRAINT "Product_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbe15407-4cac-442d-8a2e-60054f03df95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/controllers/admin/deleteItem.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/admin/deleteUser.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user/createOrder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/createOrder.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/controllers/user/createOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/user/createOrder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/prisma/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/prisma/seed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/adminRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/admin/approveProduct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/admin/approveProduct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/shop/getProductById.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/shop/getProductById.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/20230620014328_init/migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/migrations/20230621051221_init/migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/20230621051221_init/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/migration_lock.toml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/prisma/seed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/seed.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/adminRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/adminRouter.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +93,10 @@
       <workItem from="1687280881239" duration="73000" />
       <workItem from="1687311834964" duration="11668000" />
       <workItem from="1687328325661" duration="62000" />
-      <workItem from="1687328568109" duration="302000" />
+      <workItem from="1687328568109" duration="607000" />
+      <workItem from="1687329468859" duration="1853000" />
+      <workItem from="1687331402823" duration="450000" />
+      <workItem from="1687331863742" duration="193000" />
     </task>
     <servers />
   </component>

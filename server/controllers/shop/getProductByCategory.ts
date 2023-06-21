@@ -9,6 +9,7 @@ async function getProductByCategory(req: Request, res: Response) {
   const { page, limit } = req.query;
 
   let productList: Product[];
+
   try {
     if (!page || !limit || +page <= 0 || +limit <= 0) {
       productList = await prisma.product.findMany({
@@ -23,7 +24,7 @@ async function getProductByCategory(req: Request, res: Response) {
           features: true,
           categories: true,
           image: true,
-          size: true,
+          versions: true,
         },
       });
     } else {
@@ -44,7 +45,7 @@ async function getProductByCategory(req: Request, res: Response) {
           features: true,
           categories: true,
           image: true,
-          size: true,
+          versions: true,
         },
       });
     }

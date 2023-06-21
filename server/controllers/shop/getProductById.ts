@@ -11,7 +11,7 @@ async function getProductById(req: Request, res: Response) {
       features: true,
       categories: true,
       image: true,
-      size: true,
+      versions: true,
     },
   });
   try {

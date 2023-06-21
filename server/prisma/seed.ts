@@ -274,20 +274,10 @@ async function main() {
                 },
               ],
             },
-            versions: {
-              create: [
-                {
-                  currentPrice: 22.33,
-                  marketPrice: 222.1,
-                  version: "PRO MAX",
-                  quantity: 11,
-                },
-              ],
-            },
             description: "this is description",
             public: true,
-            rating: 5.4,
-            brand: "Redmi",
+            rating: 4.7,
+            brand: "L.G",
             image: {
               create: [
                 {
@@ -295,6 +285,34 @@ async function main() {
                 },
                 {
                   url: "https://images.freeimages.com/images/previews/ac9/railway-hdr-161893.jpg",
+                },
+                {
+                  url: "https://images.freeimages.com/images/previews/ac9/railway-hdr-161893.jpg",
+                },
+                {
+                  url: "https://images.freeimages.com/images/previews/ac9/railway-hdr-161893.jpg",
+                },
+              ],
+            },
+            versions: {
+              create: [
+                {
+                  currentPrice: 1122.33,
+                  marketPrice: 11222.1,
+                  version: "8 KG",
+                  quantity: 11,
+                },
+                {
+                  currentPrice: 122.33,
+                  marketPrice: 222.1,
+                  version: "14 KG",
+                  quantity: 11,
+                },
+                {
+                  currentPrice: 2222.33,
+                  marketPrice: 222.1,
+                  version: "18 KG",
+                  quantity: 11,
                 },
               ],
             },
@@ -308,6 +326,9 @@ async function main() {
                 },
                 {
                   category: "washing",
+                },
+                {
+                  category: "clothe",
                 },
               ],
             },
