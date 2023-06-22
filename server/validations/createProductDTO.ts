@@ -1,5 +1,4 @@
 import { string, z } from "zod";
-import { Sizes } from "@prisma/client";
 
 const createProductDTO = z.object({
   title: z
@@ -32,9 +31,9 @@ const createProductDTO = z.object({
     .pipe(z.coerce.number()),
   image: z.array(z.string().url()),
   categories: z.array(z.string()),
-  size: z.array(
+  versions: z.array(
     z.object({
-      size: z.nativeEnum(Sizes),
+      version: z.string(),
       quantity: z.string().pipe(z.coerce.number()),
     })
   ),

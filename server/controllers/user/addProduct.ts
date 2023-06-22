@@ -15,8 +15,6 @@ async function addProduct(req: Request, res: Response) {
         userId: req.body.userId,
         description: product.description,
         brand: product.brand,
-        currentPrice: product.currentPrice,
-        marketPrice: product.marketPrice,
         public: product.public,
         features: {
           create: product.features.map((feature) => {
@@ -33,9 +31,14 @@ async function addProduct(req: Request, res: Response) {
             return { url: img };
           }),
         },
-        size: {
-          create: product.size.map((size) => {
-            return { size: size.size, quantity: size.quantity };
+        versions: {
+          create: product.versions.map((version) => {
+            return {
+              marketPrice: product.marketPrice,
+              currentPrice: product.currentPrice,
+              quantity: version.quantity,
+              version: version.version,
+            };
           }),
         },
       },
@@ -43,7 +46,7 @@ async function addProduct(req: Request, res: Response) {
         features: true,
         categories: true,
         image: true,
-        size: true,
+        versions: true,
       },
     });
 

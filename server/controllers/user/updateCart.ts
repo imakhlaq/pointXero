@@ -4,13 +4,16 @@ import { z } from "zod";
 import CustomError from "../../utils/CustomError";
 import formatError from "../../utils/formatError";
 
-const bodyDTO = z.object({ prodId: z.string() });
+const bodyDTO = z.object({ prodId: z.string(), version: z.string() });
 
 async function updateCart(req: Request, res: Response) {
   try {
-    const { prodId } = bodyDTO.parse(req.body);
+    const { prodId, version } = bodyDTO.parse(req.body);
 
-    const product = await prisma.product.findUnique({ where: { id: prodId } });
+    const product = await prisma.product.findUnique({
+      where: { id: prodId },
+      include: { versions: true },
+    });
 
     if (!product) {
       throw new CustomError("Product does not exits", 404);
@@ -28,17 +31,24 @@ async function updateCart(req: Request, res: Response) {
       },
     });
     if (!cartExit) {
+      const productVersion = await prisma.version.findUnique({
+        where: { id: version },
+      });
+
+      const currentPrice = productVersion?.currentPrice;
+
       const cartData = await prisma.cart.create({
         data: {
           userId: req.body.userId,
           CartItem: {
             create: {
-              price: product?.currentPrice!,
+              price: currentPrice!,
               productId: prodId,
               quantity: 1,
+              versionId: version,
             },
           },
-          cartPrice: product?.currentPrice!,
+          cartPrice: currentPrice!,
         },
         include: {
           CartItem: {
