@@ -65,7 +65,7 @@ function getProductByCategory(req, res) {
                                 features: true,
                                 categories: true,
                                 image: true,
-                                size: true,
+                                versions: true,
                             },
                         })];
                 case 2:
@@ -88,7 +88,7 @@ function getProductByCategory(req, res) {
                                 features: true,
                                 categories: true,
                                 image: true,
-                                size: true,
+                                versions: true,
                             },
                         })];
                 case 4:

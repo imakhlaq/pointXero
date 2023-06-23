@@ -17,24 +17,25 @@ const createProductDTO = z.object({
     required_error: "Brand is required",
     invalid_type_error: "Brand must be a string",
   }),
-  currentPrice: z
-    .string({
-      required_error: "Current Price is required",
-      invalid_type_error: "Current Price must be a number",
-    })
-    .pipe(z.coerce.number()),
-  marketPrice: z
-    .string({
-      required_error: "Market Price is required",
-      invalid_type_error: "Market Price must be a number",
-    })
-    .pipe(z.coerce.number()),
+
   image: z.array(z.string().url()),
   categories: z.array(z.string()),
   versions: z.array(
     z.object({
       version: z.string(),
       quantity: z.string().pipe(z.coerce.number()),
+      currentPrice: z
+        .string({
+          required_error: "Current Price is required",
+          invalid_type_error: "Current Price must be a number",
+        })
+        .pipe(z.coerce.number()),
+      marketPrice: z
+        .string({
+          required_error: "Market Price is required",
+          invalid_type_error: "Market Price must be a number",
+        })
+        .pipe(z.coerce.number()),
     })
   ),
 });

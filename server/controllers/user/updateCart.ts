@@ -94,6 +94,7 @@ async function updateCart(req: Request, res: Response) {
           CartItem: {
             include: {
               product: true,
+              version: true,
             },
           },
         },

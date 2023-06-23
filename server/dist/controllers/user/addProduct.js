@@ -58,8 +58,6 @@ function addProduct(req, res) {
                                 userId: req.body.userId,
                                 description: product.description,
                                 brand: product.brand,
-                                currentPrice: product.currentPrice,
-                                marketPrice: product.marketPrice,
                                 public: product.public,
                                 features: {
                                     create: product.features.map(function (feature) {
@@ -76,9 +74,14 @@ function addProduct(req, res) {
                                         return { url: img };
                                     }),
                                 },
-                                size: {
-                                    create: product.size.map(function (size) {
-                                        return { size: size.size, quantity: size.quantity };
+                                versions: {
+                                    create: product.versions.map(function (version) {
+                                        return {
+                                            marketPrice: version.marketPrice,
+                                            currentPrice: version.currentPrice,
+                                            quantity: version.quantity,
+                                            version: version.version,
+                                        };
                                     }),
                                 },
                             },
@@ -86,7 +89,7 @@ function addProduct(req, res) {
                                 features: true,
                                 categories: true,
                                 image: true,
-                                size: true,
+                                versions: true,
                             },
                         })];
                 case 1:

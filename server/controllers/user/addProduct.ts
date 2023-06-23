@@ -34,8 +34,8 @@ async function addProduct(req: Request, res: Response) {
         versions: {
           create: product.versions.map((version) => {
             return {
-              marketPrice: product.marketPrice,
-              currentPrice: product.currentPrice,
+              marketPrice: version.marketPrice,
+              currentPrice: version.currentPrice,
               quantity: version.quantity,
               version: version.version,
             };

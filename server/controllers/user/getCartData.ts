@@ -9,6 +9,7 @@ async function getCartData(req: Request, res: Response) {
         CartItem: {
           include: {
             product: true,
+            version: true,
           },
         },
       },
