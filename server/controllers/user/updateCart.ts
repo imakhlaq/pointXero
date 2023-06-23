@@ -4,18 +4,24 @@ import { z } from "zod";
 import CustomError from "../../utils/CustomError";
 import formatError from "../../utils/formatError";
 
-const bodyDTO = z.object({ prodId: z.string(), version: z.string() });
+const bodyDTO = z.object({ prodId: z.string(), versionId: z.string() });
 
 async function updateCart(req: Request, res: Response) {
   try {
-    const { prodId, version } = bodyDTO.parse(req.body);
+    const { prodId, versionId } = bodyDTO.parse(req.body);
 
     const product = await prisma.product.findUnique({
       where: { id: prodId },
       include: { versions: true },
     });
-
     if (!product) {
+      throw new CustomError("Product does not exits", 404);
+    }
+
+    const productVersion = await prisma.version.findUnique({
+      where: { id: versionId },
+    });
+    if (!productVersion) {
       throw new CustomError("Product does not exits", 404);
     }
 
@@ -31,10 +37,6 @@ async function updateCart(req: Request, res: Response) {
       },
     });
     if (!cartExit) {
-      const productVersion = await prisma.version.findUnique({
-        where: { id: version },
-      });
-
       const currentPrice = productVersion?.currentPrice;
 
       const cartData = await prisma.cart.create({
@@ -45,7 +47,7 @@ async function updateCart(req: Request, res: Response) {
               price: currentPrice!,
               productId: prodId,
               quantity: 1,
-              versionId: version,
+              versionId: versionId,
             },
           },
           cartPrice: currentPrice!,
@@ -54,6 +56,7 @@ async function updateCart(req: Request, res: Response) {
           CartItem: {
             include: {
               product: true,
+              version: true,
             },
           },
         },
@@ -71,9 +74,8 @@ async function updateCart(req: Request, res: Response) {
 
       const totalPrice =
         +cartExit.cartPrice +
-        +product?.currentPrice * (productExistsInCart.quantity + 1);
-      console.log(totalPrice);
-      console.log(productExistsInCart);
+        +productVersion?.currentPrice * (productExistsInCart.quantity + 1);
+
       const cartData = await prisma.cart.update({
         where: { userId: req.body.userId },
         data: {
@@ -105,8 +107,9 @@ async function updateCart(req: Request, res: Response) {
           CartItem: {
             create: {
               productId: prodId,
-              price: product?.currentPrice!,
+              price: productVersion?.currentPrice!,
               quantity: 1,
+              versionId: versionId,
             },
           },
           cartPrice: cartExit.cartPrice,
@@ -115,6 +118,7 @@ async function updateCart(req: Request, res: Response) {
           CartItem: {
             include: {
               product: true,
+              version: true,
             },
           },
         },
