@@ -25,7 +25,7 @@ async function deleteCartItem(req: Request, res: Response) {
       throw new CustomError("Product doesn't exist", 404);
     }
 
-    const newQuantity = cartItem.quantity - quantity;
+      const newQuantity = cartItem.quantity - quantity;
 
     if (newQuantity <= 0) {
       const updateQuantity = await prisma.cartItem.delete({
