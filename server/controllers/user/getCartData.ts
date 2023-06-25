@@ -8,14 +8,15 @@ async function getCartData(req: Request, res: Response) {
       include: {
         CartItem: {
           include: {
-            product: true,
+            product: {
+              include: { image: true },
+            },
             version: true,
           },
         },
       },
     });
 
-    console.log(cartData);
     return res.json(cartData);
   } catch (_err) {
     return res.status(500).json({

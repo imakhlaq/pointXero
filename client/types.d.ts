@@ -1,0 +1,3 @@
+type CartProduct = {
+  id: string;
+};

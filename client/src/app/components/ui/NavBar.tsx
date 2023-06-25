@@ -1,9 +1,15 @@
+"use client";
 import Link from "next/link";
 import SearchBar from "../search/SearchBar";
 import { AiOutlineShopping, AiOutlineShoppingCart } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useAppSelector } from "@/store/hooks";
 
 const NavBar = () => {
+  const isUserLogged = useAppSelector((state) => state.auth?.name);
+
+  console.log(isUserLogged);
+
   return (
     <>
       <header className="flex justify-between px-4 py-3 md:px-7 md:py-5 items-center text-white bg-blueBgColor">
@@ -19,12 +25,30 @@ const NavBar = () => {
         </div>
 
         <nav className="hidden lg:block">
-          <ul className="flex gap-10 text-lg font-medium">
-            <li>Account</li>
-            <li>Orders</li>
+          <ul className="flex gap-16 text-lg font-medium">
             <li>
-              <AiOutlineShoppingCart className="h-7 w-7" />
+              <Link href="/cart" className="hover">
+                <AiOutlineShoppingCart className="h-7 w-7" />
+              </Link>
             </li>
+            {isUserLogged && (
+              <>
+                <li>
+                  <Link href="/orders">Orders</Link>
+                </li>
+                <li>Account</li>
+              </>
+            )}
+            {!isUserLogged && (
+              <>
+                <li>
+                  <Link href="/login">Login</Link>
+                </li>
+                <li>
+                  <Link href="/signup">Signup</Link>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
         <nav className="lg:hidden">

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { z, ZodError } from "zod";
+import { ZodError } from "zod";
 import createProductDTO from "../../validations/createProductDTO";
 import formatError from "../../utils/formatError";
 import CustomError from "../../utils/CustomError";

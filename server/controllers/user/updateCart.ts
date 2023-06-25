@@ -30,8 +30,10 @@ async function updateCart(req: Request, res: Response) {
       include: {
         CartItem: {
           include: {
-            cart: true,
-            product: true,
+            product: {
+              include: { image: true },
+            },
+            version: true,
           },
         },
       },
@@ -55,7 +57,9 @@ async function updateCart(req: Request, res: Response) {
         include: {
           CartItem: {
             include: {
-              product: true,
+              product: {
+                include: { image: true },
+              },
               version: true,
             },
           },
@@ -93,7 +97,9 @@ async function updateCart(req: Request, res: Response) {
         include: {
           CartItem: {
             include: {
-              product: true,
+              product: {
+                include: { image: true },
+              },
               version: true,
             },
           },
@@ -118,7 +124,9 @@ async function updateCart(req: Request, res: Response) {
         include: {
           CartItem: {
             include: {
-              product: true,
+              product: {
+                include: { image: true },
+              },
               version: true,
             },
           },
