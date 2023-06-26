@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 
 type InitialState = {
   value: string | number;
@@ -29,8 +29,6 @@ const wrapperFn = (zodSchema: any) => {
       if (res.success) {
         return { ...state, error: false, message: "" };
       }
-
-      console.log(res.error.format());
 
       return {
         ...state,
