@@ -27,7 +27,6 @@ const SignUpPage = () => {
     firstNameDispatch,
   ] = useValidateInput(zodFirstName);
 
-  console.log(firstNameError, firstNameErrMessage);
   const [
     secondNameError,
     secondNameErrMessage,
@@ -49,8 +48,6 @@ const SignUpPage = () => {
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!userNameErrMessage || !passError) return;
   };
 
   return (

@@ -13,39 +13,38 @@ export type ActionType = {
 
 const initialState = {} as InitialState;
 
-// @ts-ignore
-let globalZodSchema;
+const wrapperFn = (zodSchema: any) => {
+  return (state: InitialState, action: ActionType) => {
+    if (action.type === "updateInput") {
+      return {
+        ...state,
+        value: action.payload!,
+        error: false,
+        message: "",
+      };
+    } else if (action.type === "inputComplete") {
+      // @ts-ignore
+      const res = zodSchema.safeParse(state.value);
 
-const reducerFun = (state: InitialState, action: ActionType) => {
-  if (action.type === "updateInput") {
-    return {
-      ...state,
-      value: action.payload!,
-      error: false,
-      message: "",
-    };
-  } else if (action.type === "inputComplete") {
-    // @ts-ignore
-    const res = globalZodSchema.safeParse(state.value);
+      if (res.success) {
+        return { ...state, error: false, message: "" };
+      }
 
-    if (res.success) {
-      return { ...state, error: false, message: "" };
+      console.log(res.error.format());
+
+      return {
+        ...state,
+        error: true,
+        message: res.error.format()._errors[0],
+      };
+    } else {
+      return { ...state };
     }
-
-    return {
-      ...state,
-      error: true,
-      message: res.error.format()._errors[0],
-    };
-  } else {
-    return { ...state };
-  }
+  };
 };
 
 function useValidateInput(zodSchema: any) {
-  const [inputValue, dispatch] = useReducer(reducerFun, initialState);
-
-  globalZodSchema = zodSchema;
+  const [inputValue, dispatch] = useReducer(wrapperFn(zodSchema), initialState);
 
   const { error, message, value } = inputValue;
 
