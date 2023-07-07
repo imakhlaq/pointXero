@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbe15407-4cac-442d-8a2e-60054f03df95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/store/auth/authSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/types.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/shop/searchProduct.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/components/ui/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/ui/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/cart/cartSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/cart/cartSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user/addProduct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/addProduct.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user/getCartData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/getCartData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user/updateCart.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user/updateCart.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/routes/shopRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/routes/shopRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/shopRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/shopRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +61,12 @@
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.23751274&quot;,
     &quot;ts.external.directory.path&quot;: &quot;F:\\Projects\\pointXero\\server\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JShellLanguage&quot;,
+      &quot;TypeScript&quot;
+    ]
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -124,6 +118,23 @@
       <workItem from="1687628036368" duration="79000" />
       <workItem from="1687641343972" duration="78000" />
       <workItem from="1687675913087" duration="5313000" />
+      <workItem from="1688696533904" duration="48000" />
+      <workItem from="1688697397644" duration="45000" />
+      <workItem from="1688697474645" duration="49000" />
+      <workItem from="1688698815998" duration="56000" />
+      <workItem from="1688699178745" duration="40000" />
+      <workItem from="1688699439461" duration="53000" />
+      <workItem from="1688699499282" duration="12000" />
+      <workItem from="1688699635899" duration="122000" />
+      <workItem from="1688699888863" duration="128000" />
+      <workItem from="1688700390795" duration="43000" />
+      <workItem from="1688700755950" duration="52000" />
+      <workItem from="1688700878932" duration="12000" />
+      <workItem from="1688700917355" duration="40000" />
+      <workItem from="1688701032094" duration="60000" />
+      <workItem from="1688701100700" duration="48000" />
+      <workItem from="1688701195101" duration="136000" />
+      <workItem from="1688701359801" duration="560000" />
     </task>
     <servers />
   </component>

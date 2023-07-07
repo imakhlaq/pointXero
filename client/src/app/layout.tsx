@@ -24,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ProvideRedux>
-        <body className={`${poppins.className} bg-black/90 ]`}>
+        <body
+          className={`${poppins.className} bg-black/90 no-scrollbar overflow-y-auto`}
+        >
           <NavBar />
           {children}
           <Footer />

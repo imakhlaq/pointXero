@@ -2,6 +2,7 @@ import { RiSearchLine } from "react-icons/ri";
 
 const SearchBar = () => {
 
+
   return (
     <div className="flex justify-center items-center rounded-sm p-2 flex-1 w-full">
       <div className="bg-inherit p-1 border border-gray border-r-0 rounded-l-md min-h-11 w-2/3 lg:w-[28rem]">

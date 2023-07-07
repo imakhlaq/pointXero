@@ -31,6 +31,7 @@ const NavBar = () => {
                 <AiOutlineShoppingCart className="h-7 w-7" />
               </Link>
             </li>
+
             {isUserLogged && (
               <>
                 <li>
