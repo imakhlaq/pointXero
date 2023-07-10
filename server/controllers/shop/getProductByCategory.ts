@@ -15,18 +15,18 @@ async function getProductByCategory(req: Request, res: Response) {
       productList = await prisma.product.findMany({
         where: {
           AND: [
-            { public: true },
-            { adminApprove: true },
+            // { public: true },
+            // { adminApprove: true },
             { categories: { some: { category: category } } },
           ],
         },
         include: {
-          features: true,
           categories: true,
           image: true,
           versions: true,
         },
       });
+      console.log(productList);
     } else {
       const skip: number = (+page - 1) * +limit;
       const take: number = (+page - 1) * +limit + +limit;
@@ -36,19 +36,19 @@ async function getProductByCategory(req: Request, res: Response) {
         take,
         where: {
           AND: [
-            { public: true },
-            { adminApprove: true },
+            // { public: true },
+            // { adminApprove: true },
             { categories: { some: { category: category } } },
           ],
         },
         include: {
-          features: true,
           categories: true,
           image: true,
           versions: true,
         },
       });
     }
+
     return res.status(200).json(productList);
   } catch (err) {
     return res.status(500).json(formatError(err as CustomError));

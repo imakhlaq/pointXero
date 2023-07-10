@@ -67,7 +67,7 @@ export default function MainCarousel() {
     <div className="max-w-[1800px] h-[780px] w-full m-auto py-16 px-4 relative group">
       <div
         style={{ backgroundImage: `url(${carouselData[currentIndex].imgUrl})` }}
-        className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
+        className="w-full h-full rounded-2xl bg-center bg-cover duration-500 cursor-pointer"
         onClick={() =>
           router.push(`/search/${carouselData[currentIndex].link}`)
         }
@@ -86,7 +86,7 @@ export default function MainCarousel() {
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
             className={`text-2xl cursor-pointer ${
-              currentIndex === slideIndex ? "text-whiteText" : ""
+              currentIndex === slideIndex ? "text-whiteText" : "text-black"
             }`}
           >
             <RxDotFilled />

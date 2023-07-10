@@ -56,13 +56,12 @@ function getProductByCategory(req, res) {
                     return [4 /*yield*/, database_1.prisma.product.findMany({
                             where: {
                                 AND: [
-                                    { public: true },
-                                    { adminApprove: true },
+                                    // { public: true },
+                                    // { adminApprove: true },
                                     { categories: { some: { category: category } } },
                                 ],
                             },
                             include: {
-                                features: true,
                                 categories: true,
                                 image: true,
                                 versions: true,
@@ -70,6 +69,7 @@ function getProductByCategory(req, res) {
                         })];
                 case 2:
                     productList = _b.sent();
+                    console.log(productList);
                     return [3 /*break*/, 5];
                 case 3:
                     skip = (+page - 1) * +limit;
@@ -79,13 +79,12 @@ function getProductByCategory(req, res) {
                             take: take,
                             where: {
                                 AND: [
-                                    { public: true },
-                                    { adminApprove: true },
+                                    // { public: true },
+                                    // { adminApprove: true },
                                     { categories: { some: { category: category } } },
                                 ],
                             },
                             include: {
-                                features: true,
                                 categories: true,
                                 image: true,
                                 versions: true,

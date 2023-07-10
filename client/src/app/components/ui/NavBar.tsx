@@ -8,8 +8,6 @@ import { useAppSelector } from "@/store/hooks";
 const NavBar = () => {
   const isUserLogged = useAppSelector((state) => state.auth?.name);
 
-  console.log(isUserLogged);
-
   return (
     <>
       <header className="flex justify-between px-4 py-3 md:px-7 md:py-5 items-center text-white bg-blueBgColor">
