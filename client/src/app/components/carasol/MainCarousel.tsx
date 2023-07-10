@@ -67,7 +67,7 @@ export default function MainCarousel() {
     <div className="max-w-[1800px] h-[780px] w-full m-auto py-16 px-4 relative group">
       <div
         style={{ backgroundImage: `url(${carouselData[currentIndex].imgUrl})` }}
-        className="w-full h-full rounded-2xl bg-center bg-cover duration-500 cursor-pointer"
+        className="w-full h-full rounded-2xl bg-center bg-cover duration-500 cursor-pointer object-cover"
         onClick={() =>
           router.push(`/search/${carouselData[currentIndex].link}`)
         }

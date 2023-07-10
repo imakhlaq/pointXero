@@ -14,16 +14,26 @@ const Item = ({ data }: Props) => {
     100;
 
   return (
-    <div className="bg-blueBgColor p-3 rounded">
+    <div className="bg-blueBgColor p-3 rounded relative ">
       <img
         alt={data.title}
         src={data.image[0].url}
-        className="max-w-[13rem] md:max-w-[15rem] rounded"
+        className="max-w-[13rem] md:max-w-[15rem] rounded "
       />
+
       <h3>{data.title}</h3>
-      <p>{discount.toFixed(0)}% off</p>
-      <p>{data.versions[0].currentPrice}</p>
-      <p>{data.versions[0].marketPrice}</p>
+      <div className="flex items-center gap-2">
+        <p className="text-sm">
+          ₹
+          <span className="text-lg md:text-2xl">
+            {data.versions[0].currentPrice}
+          </span>
+        </p>
+        <p className="line-through text-sm self-end">
+          M.R.P: {data.versions[0].marketPrice}
+        </p>
+        <p className=" text-sm self-end">({discount.toFixed(0)}% off)</p>
+      </div>
       <BuyNowAddToCart />
     </div>
   );
