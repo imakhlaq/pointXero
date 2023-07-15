@@ -80,7 +80,8 @@ const LogInPage = () => {
           <div>{/* for google */}</div>
 
           <Link href="/signup" className="text-center mt-10">
-            Don&apos;t have Account? Sign Up
+            Don&apos;t have Account?{" "}
+            <span className="text-greenColor">Sign Up</span>
           </Link>
         </div>
       </div>

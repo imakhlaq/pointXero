@@ -5,7 +5,6 @@ import { ScrollContainer } from "react-indiana-drag-scroll";
 import { Suspense, useEffect, useState } from "react";
 import { getProductByCategory } from "@/utils/getProductByCategory";
 import { CategoryProduct } from "../../../../types";
-import axios from "axios";
 
 type Props = {
   title: string;

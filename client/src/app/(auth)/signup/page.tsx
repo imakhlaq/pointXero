@@ -144,7 +144,8 @@ const SignUpPage = () => {
             </button>
           </form>
           <Link href="/login" className="text-center mt-10">
-            Already have Account? Sign In
+            Already have Account?{" "}
+            <span className="text-greenColor">Sign In</span>
           </Link>
         </div>
       </div>
