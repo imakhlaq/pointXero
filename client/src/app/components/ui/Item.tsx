@@ -15,8 +15,8 @@ const Item = ({ data }: Props) => {
     100;
 
   return (
-    <Link href={`/product/${data.id}`}>
-      <div className="bg-blueBgColor p-3 rounded relative ">
+    <div className="bg-blueBgColor p-3 rounded relative ">
+      <Link href={`/product/${data.id}`}>
         <img
           alt={data.title}
           src={data.image[0].url}
@@ -38,9 +38,9 @@ const Item = ({ data }: Props) => {
           </p>
           <p className=" text-sm self-end">({discount.toFixed(0)}% off)</p>
         </div>
-        <BuyNowAddToCart />
-      </div>
-    </Link>
+      </Link>
+      <BuyNowAddToCart />
+    </div>
   );
 };
 export default Item;
