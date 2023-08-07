@@ -25,7 +25,7 @@ const SearchBar = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               type="text"
-              className="focus-within:bg-none focus:outline-none bg-inherit px-3 text-whiteText w-full py-2 focus:bg-whiteText  focus:text-black"
+              className="rounded-l-md focus-within:bg-none focus:outline-none bg-inherit px-3 text-whiteText w-full py-2 focus:bg-whiteText  focus:text-black"
               placeholder="Search"
             />
           </form>

@@ -25,7 +25,6 @@ const adminAuth = async (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const data = <jwt.UserIDJwtPayload>jwt.verify(token, config.SECRET_KEY!);
-
     const user = await prisma.user.findUnique({ where: { id: data.userId } });
     if (user?.role !== "admin") {
       return res.status(404).json({

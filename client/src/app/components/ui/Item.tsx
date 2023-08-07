@@ -15,12 +15,12 @@ const Item = ({ data }: Props) => {
     100;
 
   return (
-    <div className="bg-blueBgColor p-3 rounded relative ">
+    <div className="bg-blueBgColor p-3 rounded relative">
       <Link href={`/product/${data.id}`}>
         <img
           alt={data.title}
           src={data.image[0].url}
-          className="max-w-[13rem] md:max-w-[15rem] rounded "
+          className="max-w-[13rem] min-w-[16rem] md:max-w-[15rem] rounded"
         />
 
         <h3 className="mt-2 md:mt-4 text-lg md:text-xl mb-2 max-w-[14rem]">

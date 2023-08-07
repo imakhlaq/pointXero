@@ -9,11 +9,9 @@ import formatError from "../../utils/formatError";
 import createUserDTO from "../../validations/createUserDTO";
 
 const signUp = async (req: Request, res: Response) => {
-  //hash the password
-
   try {
     const body = createUserDTO.parse(req.body);
-
+    //hash the password
     const hashedPassword = await bcrypt.hash(body.password, 10);
 
     const userData = { ...body, password: hashedPassword };

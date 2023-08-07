@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbe15407-4cac-442d-8a2e-60054f03df95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/categorie/category.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/ui/Item.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/utils/categories.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/utils/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/utils/getProductByCategory.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/utils/service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/carasol/MainCarousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/carasol/MainCarousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/ui/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/ui/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/types.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/types.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/shop/getProductByCategory.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dist/controllers/shop/getProductByCategory.js" afterDir="false" />
-    </list>
+    <list default="true" id="dbe15407-4cac-442d-8a2e-60054f03df95" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,31 +40,31 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "jsx.switch.disabled": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "F:\\Projects\\pointXero\\server\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "settings.editor.splitter.proportion": "0.23751274",
-    "ts.external.directory.path": "F:\\Projects\\pointXero\\client\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jsx.switch.disabled&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;F:\\Projects\\pointXero\\server\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.23751274&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;F:\\Projects\\pointXero\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JShellLanguage",
-      "TypeScript"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JShellLanguage&quot;,
+      &quot;TypeScript&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -150,6 +132,10 @@
       <workItem from="1688701195101" duration="136000" />
       <workItem from="1688701359801" duration="560000" />
       <workItem from="1688969246381" duration="33000" />
+      <workItem from="1689733249025" duration="13000" />
+      <workItem from="1689733362074" duration="51000" />
+      <workItem from="1689733451550" duration="12000" />
+      <workItem from="1689750434467" duration="24000" />
     </task>
     <servers />
   </component>
