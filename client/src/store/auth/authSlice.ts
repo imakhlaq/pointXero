@@ -1,9 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AuthResponse } from "../../../types";
 
-type InitialSate = {
-  name: string;
-  email: string;
-};
+type InitialSate = Required<AuthResponse>;
 
 const initialState = {} as InitialSate | null;
 
@@ -12,8 +10,10 @@ const authSlice = createSlice({
   initialState,
 
   reducers: {
-    setUser() {},
-    removeUser() {},
+    setUser(state, action: PayloadAction<AuthResponse>) {},
+    removeUser(state) {
+      return null;
+    },
   },
 });
 

@@ -32,7 +32,7 @@ const Item = ({ data }: Props) => {
         <div className="flex items-center gap-2">
           <p className="text-sm">
             ₹
-            <span className="text-lg md:text-2xl">
+            <span className="text-lg md:text-xl">
               {data.versions[0].currentPrice}
             </span>
           </p>

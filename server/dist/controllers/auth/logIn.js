@@ -92,7 +92,13 @@ var logIn = function (req, res) { return __awaiter(void 0, void 0, void 0, funct
                     throw new CustomError_1.default("Invalid password", 404);
                 }
                 token = (0, createJwtTokens_1.default)(userInDB.id, userInDB.username, userInDB.email);
-                return [2 /*return*/, res.status(200).json({ token: token })];
+                return [2 /*return*/, res.status(200).json({
+                        token: token,
+                        username: userInDB.username,
+                        firstName: userInDB.firstName,
+                        lastName: userInDB.firstName,
+                        email: userInDB.email,
+                    })];
             case 3:
                 _err_1 = _b.sent();
                 // zod Error

@@ -37,7 +37,13 @@ const logIn = async (req: Request, res: Response) => {
       userInDB.email
     );
 
-    return res.status(200).json({ token });
+    return res.status(200).json({
+      token,
+      username: userInDB.username,
+      firstName: userInDB.firstName,
+      lastName: userInDB.firstName,
+      email: userInDB.email,
+    });
   } catch (_err) {
     // zod Error
     if (_err instanceof z.ZodError) {

@@ -97,17 +97,14 @@ var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, func
                     })];
             case 2:
                 emailExists = _b.sent();
-                console.log("before email");
                 if (emailExists) {
                     throw new CustomError_1.default("This Email already Exits", 409);
                 }
-                console.log("after email");
                 return [4 /*yield*/, database_1.prisma.user.findUnique({
                         where: { username: userData.username },
                     })];
             case 3:
                 userNameExists = _b.sent();
-                console.log("after use name");
                 if (userNameExists) {
                     throw new CustomError_1.default("This User Name already Exits", 409);
                 }
@@ -116,7 +113,13 @@ var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, func
                 createdUser = _b.sent();
                 token = (0, createJwtTokens_1.default)(createdUser.id, createdUser.username, createdUser.email);
                 //return the jwt token
-                return [2 /*return*/, res.status(201).json({ token: token })];
+                return [2 /*return*/, res.status(201).json({
+                        token: token,
+                        userName: userData.username,
+                        firstName: userData.firstName,
+                        lastName: userData.lastName,
+                        email: userData.email,
+                    })];
             case 5:
                 _err_1 = _b.sent();
                 if (_err_1 instanceof zod_1.ZodError) {

@@ -2,7 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/app/components/ui/NavBar";
 import Footer from "@/app/components/ui/Footer";
-import ProvideRedux from "@/store/ProvideRedux";
+import ProviderWrapper from "@/store/ProviderWrapper";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ProvideRedux>
+      <ProviderWrapper>
         <body
           className={`${poppins.className} bg-black/90 no-scrollbar overflow-y-auto text-whiteText`}
         >
@@ -31,7 +31,7 @@ export default function RootLayout({
           {children}
           {/*<Footer />*/}
         </body>
-      </ProvideRedux>
+      </ProviderWrapper>
     </html>
   );
 }

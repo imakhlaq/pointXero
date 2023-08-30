@@ -41,3 +41,11 @@ export interface VersionElement {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface AuthResponse {
+  token: string;
+  userName: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+}

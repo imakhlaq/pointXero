@@ -20,15 +20,14 @@ const signUp = async (req: Request, res: Response) => {
       where: { email: userData.email },
     });
 
-    console.log("before email");
     if (emailExists) {
       throw new CustomError("This Email already Exits", 409);
     }
-    console.log("after email");
+
     const userNameExists = await prisma.user.findUnique({
       where: { username: userData.username },
     });
-    console.log("after use name");
+
     if (userNameExists) {
       throw new CustomError("This User Name already Exits", 409);
     }
@@ -46,7 +45,13 @@ const signUp = async (req: Request, res: Response) => {
     );
     //return the jwt token
 
-    return res.status(201).json({ token });
+    return res.status(201).json({
+      token,
+      userName: userData.username,
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      email: userData.email,
+    });
   } catch (_err) {
     if (_err instanceof ZodError) {
       return res.status(400).json(formatError(_err));
