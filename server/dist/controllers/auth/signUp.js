@@ -97,14 +97,17 @@ var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, func
                     })];
             case 2:
                 emailExists = _b.sent();
+                console.log("before email");
                 if (emailExists) {
                     throw new CustomError_1.default("This Email already Exits", 409);
                 }
+                console.log("after email");
                 return [4 /*yield*/, database_1.prisma.user.findUnique({
                         where: { username: userData.username },
                     })];
             case 3:
                 userNameExists = _b.sent();
+                console.log("after use name");
                 if (userNameExists) {
                     throw new CustomError_1.default("This User Name already Exits", 409);
                 }

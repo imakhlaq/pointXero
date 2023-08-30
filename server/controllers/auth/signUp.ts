@@ -20,14 +20,15 @@ const signUp = async (req: Request, res: Response) => {
       where: { email: userData.email },
     });
 
+    console.log("before email");
     if (emailExists) {
       throw new CustomError("This Email already Exits", 409);
     }
-
+    console.log("after email");
     const userNameExists = await prisma.user.findUnique({
       where: { username: userData.username },
     });
-
+    console.log("after use name");
     if (userNameExists) {
       throw new CustomError("This User Name already Exits", 409);
     }

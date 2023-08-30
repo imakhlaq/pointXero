@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Dispatch, FormEvent, useState } from "react";
-import useValidateInput, { ActionType } from "@/app/hooks/useValidateInput";
+import useValidateInput, { ActionType } from "@/hooks/useValidateInput";
 import {
   zodEmail,
   zodFirstName,

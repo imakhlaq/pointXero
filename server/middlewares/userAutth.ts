@@ -12,10 +12,9 @@ declare module "jsonwebtoken" {
 }
 
 const userAuth = async (req: Request, res: Response, next: NextFunction) => {
-  const authHeader = req.header("authorization");
+  const authHeader = req.header("Authorization");
 
   const token = authHeader?.split(" ")[1];
-
   //verifying token
   if (!token) {
     return res.status(401).json({

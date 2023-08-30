@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import useValidateInput, { ActionType } from "@/app/hooks/useValidateInput";
+import useValidateInput, { ActionType } from "@/hooks/useValidateInput";
 import { ChangeEvent, Dispatch, FormEvent, useState } from "react";
 import { zodPass, zodUserName } from "../../../../zodSchemas/logInSchema";
 

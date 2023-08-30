@@ -44,7 +44,7 @@ var envConfig_1 = __importDefault(require("../config/envConfig"));
 var userAuth = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var authHeader, token, data;
     return __generator(this, function (_a) {
-        authHeader = req.header("authorization");
+        authHeader = req.header("Authorization");
         token = authHeader === null || authHeader === void 0 ? void 0 : authHeader.split(" ")[1];
         //verifying token
         if (!token) {
