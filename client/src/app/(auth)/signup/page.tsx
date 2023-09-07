@@ -9,6 +9,7 @@ import {
   zodSecondName,
 } from "../../../../zodSchemas/singnUpSchema";
 import { zodPass, zodUserName } from "../../../../zodSchemas/logInSchema";
+import useAuth from "@/hooks/useAuth";
 
 const valueChangeHandler = (dispatch: Dispatch<ActionType>, value: string) => {
   dispatch({ type: "updateInput", payload: value });
@@ -19,7 +20,7 @@ const blurHandler = (dispatch: Dispatch<ActionType>) => {
 
 const SignUpPage = () => {
   const [passShow, setPassShow] = useState(false);
-
+  const { mutate, isError, isLoading, error } = useAuth({ action: "signup" });
   const [
     firstNameError,
     firstNameErrMessage,
@@ -48,6 +49,32 @@ const SignUpPage = () => {
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (
+      firstNameError ||
+      secondNameError ||
+      userNameError ||
+      passError ||
+      phoneNOError ||
+      emailError
+    ) {
+      blurHandler(firstNameDispatch);
+      blurHandler(secondNameDispatch);
+      blurHandler(userNameDispatch);
+      blurHandler(emailDispatch);
+      blurHandler(phoneNODispatch);
+      blurHandler(passDispatch);
+      return;
+    }
+    console.log("here");
+    mutate({
+      username: userNameValue,
+      firstName: firstNameValue,
+      lastName: secondNameValue,
+      password: passValue,
+      phone: emailValue,
+      email: phoneNOValue,
+    });
   };
 
   return (
@@ -140,6 +167,12 @@ const SignUpPage = () => {
               type="submit"
               className="bg-greenColor max-w-xs py-2 px-4 rounded-md font-bold "
             >
+              {isLoading && (
+                <div
+                  className="w-12 h-12 rounded-full animate-spin
+                    border-4 border-solid border-green-500 border-t-transparent shadow-md"
+                ></div>
+              )}
               Sign Up
             </button>
           </form>

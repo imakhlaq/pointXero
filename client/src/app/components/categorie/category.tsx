@@ -2,11 +2,9 @@
 import Link from "next/link";
 import Item from "@/app/components/ui/Item";
 import { ScrollContainer } from "react-indiana-drag-scroll";
-import { Suspense, useEffect, useState } from "react";
-import { getProductByCategory } from "@/utils/getProductByCategory";
+import { Suspense } from "react";
 import { CategoryProduct } from "../../../../types";
 import { useCustomQuery } from "@/hooks/useCustomQuerry";
-import { UseQueryResult } from "react-query";
 
 type Props = {
   category: string;

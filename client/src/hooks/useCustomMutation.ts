@@ -3,17 +3,30 @@ import service from "@/utils/service";
 
 type Props = {
   path: string;
+  enabled?: boolean;
+  onSuccess?: (data: any) => any;
+  onError?: (error: any) => any;
+};
+
+type Prop1 = {
+  path: string;
   body: {};
 };
 
-type HookProps = Props & {};
+export async function mutationFunc<T>({ path, body }: Prop1): Promise<T> {
+  const response = await service.post(path, body, {});
+  return response.data;
+}
 
-const mutationFunc = ({ path, body }: Props) => {
-  return service.post(path, body, {});
-};
-
-export const useCustomMutation = ({ path, body }: HookProps) => {
+export function useCustomMutation<T>({
+  path,
+  enabled,
+  onSuccess,
+  onError,
+}: Props) {
   return useMutation({
-    mutationFn: (data) => mutationFunc({ path, body }),
+    mutationFn: (body: {}) => mutationFunc<T>({ path, body }),
+    onSuccess: onSuccess,
+    onError: onError,
   });
-};
+}
