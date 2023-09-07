@@ -72,8 +72,8 @@ const SignUpPage = () => {
       firstName: firstNameValue,
       lastName: secondNameValue,
       password: passValue,
-      phone: emailValue,
-      email: phoneNOValue,
+      phone: phoneNOValue,
+      email: emailValue,
     });
   };
 

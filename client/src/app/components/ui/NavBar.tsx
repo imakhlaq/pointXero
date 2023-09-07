@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { useAppSelector } from "@/store/hooks";
 
 const NavBar = () => {
-  const isUserLogged = useAppSelector((state) => state.auth?.name);
+  const isUserLogged = useAppSelector((state) => state.auth);
 
   return (
     <>

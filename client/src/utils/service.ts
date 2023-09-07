@@ -5,6 +5,9 @@ const service = axios.create({
   baseURL: config.baseUrl,
   headers: {
     Accept: "application/json",
+    Authorization: `Bearer ${(function () {
+      return localStorage.getItem("token");
+    })()}`,
   },
 });
 
@@ -12,10 +15,11 @@ const service = axios.create({
 
 service.interceptors.request.use(
   (config) => {
-    /*const accessToken = localStorage.getItem("token");
-        if (accessToken) {
-          config.headers.common = { Authorization: `Bearer ${accessToken}` };
-        }*/
+    const accessToken = localStorage.getItem("token");
+    /* if (accessToken) {
+      config.headers.common = { Authorization: `Bearer ${accessToken}` };
+      console.log(config.headers.common);
+    }*/
     return config;
   },
   (error) => {

@@ -1,7 +1,3 @@
-type CartProduct = {
-  id: string;
-};
-
 export interface CategoryProduct {
   id: string;
   title: string;
@@ -13,12 +9,12 @@ export interface CategoryProduct {
   userId: string;
   createdAt: Date;
   updatedAt: Date;
-  categories: CategoryElement[];
+  categories: Category[];
   image: Image[];
-  versions: VersionElement[];
+  versions: Version[];
 }
 
-export interface CategoryElement {
+export interface Category {
   id: string;
   category: string;
 }
@@ -31,7 +27,7 @@ export interface Image {
   updatedAt: Date;
 }
 
-export interface VersionElement {
+export interface Version {
   id: string;
   version: string;
   currentPrice: string;
@@ -41,11 +37,36 @@ export interface VersionElement {
   createdAt: Date;
   updatedAt: Date;
 }
-
+//auth response
 export interface AuthResponse {
   token: string;
   userName: string;
   firstName: string;
   lastName: string;
   email: string;
+}
+
+//cart update response
+export interface CartProduct {
+  id: string;
+  cartPrice: string;
+  userId: string;
+  createdAt: string;
+  updatedAt: string;
+  CartItem: CartItem[];
+}
+
+export type Product = Omit<CategoryProduct, "categories", "versions">;
+
+export interface CartItem {
+  id: string;
+  price: string;
+  quantity: number;
+  cartId: string;
+  productId: string;
+  versionId: string;
+  createdAt: string;
+  updatedAt: string;
+  product: Product;
+  version: Version;
 }

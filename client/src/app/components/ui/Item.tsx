@@ -42,7 +42,7 @@ const Item = ({ data }: Props) => {
           <p className=" text-sm self-end">({discount.toFixed(0)}% off)</p>
         </div>
       </Link>
-      <BuyNowAddToCart />
+      <BuyNowAddToCart prodId={data.id} versionId={data.versions[0].id} />
     </div>
   );
 };

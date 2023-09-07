@@ -3,6 +3,7 @@ import Link from "next/link";
 import useValidateInput, { ActionType } from "@/hooks/useValidateInput";
 import { ChangeEvent, Dispatch, FormEvent, useState } from "react";
 import { zodPass, zodUserName } from "../../../../zodSchemas/logInSchema";
+import useAuth from "@/hooks/useAuth";
 
 const valueChangeHandler = (dispatch: Dispatch<ActionType>, value: string) => {
   dispatch({ type: "updateInput", payload: value });
@@ -13,6 +14,7 @@ const blurHandler = (dispatch: Dispatch<ActionType>) => {
 
 const LogInPage = () => {
   const [passShow, setPassShow] = useState(false);
+  const { mutate, isError, isLoading } = useAuth({ action: "login" });
 
   const [userNameError, userNameErrMessage, userNameValue, userNameDispatch] =
     useValidateInput(zodUserName);
@@ -22,9 +24,16 @@ const LogInPage = () => {
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    blurHandler(userNameDispatch);
-    blurHandler(passDispatch);
-    if (!userNameErrMessage || !passError) return;
+
+    if (userNameErrMessage || passError) {
+      blurHandler(userNameDispatch);
+      blurHandler(passDispatch);
+      return;
+    }
+    mutate({
+      username: userNameValue,
+      password: passValue,
+    });
   };
 
   return (

@@ -3,7 +3,6 @@ import service from "@/utils/service";
 
 type Props = {
   path: string;
-  enabled?: boolean;
   onSuccess?: (data: any) => any;
   onError?: (error: any) => any;
 };
@@ -18,12 +17,7 @@ export async function mutationFunc<T>({ path, body }: Prop1): Promise<T> {
   return response.data;
 }
 
-export function useCustomMutation<T>({
-  path,
-  enabled,
-  onSuccess,
-  onError,
-}: Props) {
+export function useCustomMutation<T>({ path, onSuccess, onError }: Props) {
   return useMutation({
     mutationFn: (body: {}) => mutationFunc<T>({ path, body }),
     onSuccess: onSuccess,
