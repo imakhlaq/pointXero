@@ -44,7 +44,6 @@ const signUp = async (req: Request, res: Response) => {
       createdUser.email
     );
     //return the jwt token
-
     return res.status(201).json({
       token,
       userName: userData.username,
@@ -53,6 +52,7 @@ const signUp = async (req: Request, res: Response) => {
       email: userData.email,
     });
   } catch (_err) {
+    console.log(_err);
     if (_err instanceof ZodError) {
       return res.status(400).json(formatError(_err));
     }

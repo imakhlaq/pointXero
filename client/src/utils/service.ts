@@ -6,7 +6,7 @@ const service = axios.create({
   headers: {
     Accept: "application/json",
     Authorization: `Bearer ${(function () {
-      return localStorage.getItem("token");
+      return typeof window !== "undefined" ? localStorage.getItem("token") : "";
     })()}`,
   },
 });

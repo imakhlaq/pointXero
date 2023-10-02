@@ -7,6 +7,6 @@ const CartPage = (props: Props) => {
   const cartData = useAppSelector((state) => state.cart);
 
   console.log(cartData);
-  return <div>CartPage</div>;
+  return <section>CartPage</section>;
 };
 export default CartPage;

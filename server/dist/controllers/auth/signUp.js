@@ -122,6 +122,7 @@ var signUp = function (req, res) { return __awaiter(void 0, void 0, void 0, func
                     })];
             case 5:
                 _err_1 = _b.sent();
+                console.log(_err_1);
                 if (_err_1 instanceof zod_1.ZodError) {
                     return [2 /*return*/, res.status(400).json((0, formatError_1.default)(_err_1))];
                 }

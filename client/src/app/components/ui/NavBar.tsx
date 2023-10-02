@@ -3,9 +3,17 @@ import Link from "next/link";
 import SearchBar from "../search/SearchBar";
 import { AiOutlineShopping, AiOutlineShoppingCart } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useGetLoggedData } from "@/hooks/useGetLoggedData";
 import { useAppSelector } from "@/store/hooks";
+import { useEffect } from "react";
 
 const NavBar = () => {
+  const setLogin = useGetLoggedData();
+  //checking logged
+  useEffect(() => {
+    setLogin();
+  }, []);
+
   const isUserLogged = useAppSelector((state) => state.auth);
 
   return (
@@ -30,7 +38,7 @@ const NavBar = () => {
               </Link>
             </li>
 
-            {isUserLogged && (
+            {isUserLogged?.userName && (
               <>
                 <li>
                   <Link href="/orders">Orders</Link>
@@ -38,7 +46,7 @@ const NavBar = () => {
                 <li>Account</li>
               </>
             )}
-            {!isUserLogged && (
+            {!isUserLogged?.userName && (
               <>
                 <li>
                   <Link href="/login">Login</Link>

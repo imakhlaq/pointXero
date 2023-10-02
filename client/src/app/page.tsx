@@ -1,7 +1,6 @@
 import MainCarousel from "@/app/components/carasol/MainCarousel";
 import Category from "@/app/components/categorie/category";
 import { categoriesName } from "@/utils/categories";
-import axios from "axios";
 
 export default function Home() {
   return (
