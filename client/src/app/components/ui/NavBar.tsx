@@ -5,11 +5,15 @@ import { AiOutlineShopping, AiOutlineShoppingCart } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useGetLoggedData } from "@/hooks/useGetLoggedData";
 import { useAppSelector } from "@/store/hooks";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import AccountOpt from "@/app/components/account/account";
 
 const NavBar = () => {
-  const setLogin = useGetLoggedData();
+  const [showAccount, setShowAccount] = useState(false);
+
   //checking logged
+  const setLogin = useGetLoggedData();
+
   useEffect(() => {
     setLogin();
   }, []);
@@ -43,7 +47,16 @@ const NavBar = () => {
                 <li>
                   <Link href="/orders">Orders</Link>
                 </li>
-                <li>Account</li>
+                <li onMouseOver={() => setShowAccount(true)}>
+                  <p className="cursor-pointer">Account</p>
+                  <div
+                    className="relative z-30 flex justify-center"
+                    onMouseOver={() => setShowAccount(true)}
+                    onMouseOut={() => setShowAccount(false)}
+                  >
+                    {showAccount && <AccountOpt />}
+                  </div>
+                </li>
               </>
             )}
             {!isUserLogged?.userName && (
